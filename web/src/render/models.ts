@@ -11,8 +11,9 @@ export interface YukkuriModel {
   update: (
     time: number,
     state: State,
-    deathCause?: "standard" | "poison",
+    deathCause?: "standard" | "poison" | "budding",
     deathAge?: number,
+    juvenile?: boolean,
   ) => void;
   setBuds: (count: number, growth: number) => void;
   dispose: () => void;
@@ -496,13 +497,14 @@ export class ModelLibrary {
           f.material = thisLib.face(state);
         }
       },
-      update(time, state, deathCause, deathAge = 1) {
+      update(time, state, deathCause, deathAge = 1, juvenile = false) {
         const moving = ["moving", "frightened", "grouping"].includes(state),
           b = moving
             ? Math.abs(Math.sin(time * (state === "frightened" ? 11 : 5.5))) *
               0.14
             : Math.sin(time * 2) * 0.015;
         body.position.y = b;
+        body.position.x = state === "budding" && juvenile ? Math.sin(time * 31) * 0.035 : 0;
         body.scale.set(1 - b * 0.25, 1 + b * 0.25, 1 - b * 0.25);
         skin.material = thisLib.material(
           state === "burning"
@@ -532,7 +534,9 @@ export class ModelLibrary {
         } else {
           f.scale.y = 1;
         }
-        if (state === "poisoned") body.rotation.z = Math.sin(time * 24) * 0.025;
+        if (state === "budding" && juvenile)
+          body.rotation.z = Math.sin(time * 25) * 0.045;
+        else if (state === "poisoned") body.rotation.z = Math.sin(time * 24) * 0.025;
         else body.rotation.z = 0;
         if (state !== "burning")
           this.expression(
@@ -540,7 +544,16 @@ export class ModelLibrary {
               ? "poisoned"
               : state,
           );
-        babies.forEach((child) => child.update(time, "idle"));
+        babies.forEach((child) =>
+          child.update(
+            time,
+            state === "disposed" && deathCause === "budding"
+              ? "disposed"
+              : "idle",
+            deathCause,
+            deathAge,
+          ),
+        );
       },
       dispose() {
         babies.forEach((child) => child.dispose());

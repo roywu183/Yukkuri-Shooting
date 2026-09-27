@@ -1,5 +1,6 @@
 import type { SpeciesId } from "./content";
 export type DialogueEvent = "idle" | "witness" | "death";
+export const juvenileBuddingLine = "阿阿阿不要吸走生命的餡子阿阿!!";
 export type AgeGroup = "adult" | "child";
 type Lines = Record<DialogueEvent, string[]>;
 export const commonDialogue: Record<AgeGroup, Lines> = {

@@ -2,6 +2,7 @@ import { expect, it } from "vitest";
 import { Session } from "../src/game/rules";
 import { missionById, ammoOrder } from "../src/data/content";
 import { newProgress } from "../src/game/progress";
+import { juvenileBuddingLine } from "../src/data/dialogue";
 
 const game = () => {
   const s = new Session(missionById("park_01"), "free", newProgress(), 7);
@@ -85,30 +86,71 @@ it("重複芽殖命中不增加預約或延後出生，幼體落地後可行走"
   advance(s, 1);
   expect(children.every((a) => !a.birth && a.pos[1] === 0)).toBe(true);
 });
-it.each(["free", "campaign"] as const)(
-  "%s 可對超過三隻持續芽殖並超過舊族群上限",
-  (mode) => {
-    const s = new Session(missionById("park_01"), mode, newProgress(), 7);
-    s.availableAmmo = [...ammoOrder];
-    s.ammo = "budding";
-    const parents = [...s.enemies];
-    let expected = 0;
-    for (let cycle = 0; cycle < 3; cycle++) {
-      for (const parent of parents) {
-        s.rounds = 5;
-        s.cooldown = 0;
-        expect(s.fire(parent.id)).toBe(true);
-        const count = s.pending.filter((p) => p.parentId === parent.id).length;
-        expect(count).toBeGreaterThanOrEqual(1);
-        expected += count;
-      }
-      advance(s, 6);
-      expect(s.childSpawns).toBe(expected);
-      expect(s.pending).toHaveLength(0);
-    }
-    expect(s.activeCount).toBeGreaterThan(24);
-  },
-);
+it("普通彈與每種特殊彈分開計數，特殊彈耗盡不能藉換彈補充", () => {
+  const s = game();
+  s.ammo = "budding";
+  for (let i = 0; i < 3; i++) {
+    s.cooldown = 0;
+    expect(s.fire(null)).toBe(true);
+  }
+  expect(s.specialRounds.budding).toBe(0);
+  expect(s.rounds).toBe(5);
+  expect(s.fire(null)).toBe(false);
+  s.ammo = "chili";
+  s.cooldown = 0;
+  expect(s.fire(null)).toBe(true);
+  expect(s.specialRounds.chili).toBe(2);
+  s.ammo = "standard";
+  s.cooldown = 0;
+  expect(s.fire(null)).toBe(true);
+  expect(s.reload()).toBe(true);
+  advance(s, 3);
+  expect(s.rounds).toBe(5);
+  expect(s.specialRounds.budding).toBe(0);
+});
+it("擴充彈匣升級後，每種特殊彈各帶五發且每場重新配發", () => {
+  const progress = newProgress();
+  progress.upgrades.magazine_capacity_1 = 1;
+  const first = new Session(missionById("park_01"), "free", progress, 7);
+  first.availableAmmo = [...ammoOrder];
+  expect(first.equip.specialCapacity).toBe(5);
+  expect(Object.values(first.specialRounds)).toEqual([5, 5, 5, 5]);
+  first.ammo = "coffee";
+  first.fire(null);
+  expect(first.specialRounds.coffee).toBe(4);
+  const next = new Session(missionById("park_01"), "free", progress, 7);
+  expect(next.specialRounds.coffee).toBe(5);
+});
+it("小油庫里芽殖後枝條與掛載幼體一起乾扁，屍體留在原地", () => {
+  const s = game();
+  s.ammo = "budding";
+  const a = s.enemies[0];
+  a.juvenile = true;
+  a.scale = 0.5;
+  const pos = [...a.pos];
+  expect(s.fire(a.id)).toBe(true);
+  expect(a.state).toBe("budding");
+  expect(a.budCount).toBeGreaterThanOrEqual(1);
+  expect(s.pending).toHaveLength(0);
+  expect(s.speeches.find((speech) => speech.actorId === a.id)).toMatchObject({
+    event: "budding",
+    text: juvenileBuddingLine,
+  });
+  advance(s, 4.9);
+  expect(a.pos).toEqual(pos);
+  expect(s.speeches.some((speech) => speech.actorId === a.id && speech.text === juvenileBuddingLine)).toBe(true);
+  advance(s, 0.3);
+  expect(a.state).toBe("disposed");
+  expect(s.speeches.find((speech) => speech.actorId === a.id)?.event).toBe("death");
+  expect(a.deathCause).toBe("budding");
+  expect(a.pos).toEqual(pos);
+  expect(s.childSpawns).toBe(0);
+  expect(s.enemies).toContain(a);
+  advance(s, 30);
+  expect(s.enemies).toContain(a);
+  expect(a.budCount).toBeGreaterThanOrEqual(1);
+  expect(a.pos).toEqual(pos);
+});
 it("辣椒命中不直接引爆遠處個體，爆炸資料會清除", () => {
   const s = game();
   s.ammo = "chili";

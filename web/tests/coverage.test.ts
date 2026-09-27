@@ -110,14 +110,16 @@ describe("協力者、經濟與規則邊界", () => {
       expect(a.pos).not.toEqual(pos);
     }
   });
-  it("自由模式免費換彈後，點數不足不扣款不裝填", () => {
+  it("自由模式普通彈可反覆免費裝填", () => {
     const s = new Session(missionById("park_01"), "free", newProgress(), 2);
     s.fire(null);
     expect(s.reload()).toBe(true);
     s.tick(3);
     s.fire(null);
-    expect(s.reload()).toBe(false);
-    expect(s.reloadSpent).toBe(0);
+    expect(s.reload()).toBe(true);
+    s.tick(3);
+    expect(s.rounds).toBe(s.equip.capacity);
+    expect(s.finish().community).toBe(0);
   });
   it("特殊條件與超时失敗不推進戰役", () => {
     const s = new Session(missionById("park_03"), "campaign", newProgress(), 2);
@@ -149,6 +151,7 @@ describe("協力者、經濟與規則邊界", () => {
     expect(equipment(p)).toMatchObject({
       velocity: 1.5,
       capacity: 8,
+      specialCapacity: 5,
       scope: 0.65,
     });
     expect(equipment(p).reload).toBeCloseTo(1.2);

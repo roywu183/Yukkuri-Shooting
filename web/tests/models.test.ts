@@ -73,3 +73,31 @@ it("芽殖掛載數量一致、重複生長可回收，變紅不影響其他個�
   lib.dispose();
   expect(lib.resourceCount).toBe(0);
 });
+it("芽殖死亡時枝條不消失，掛載幼體跟母體一同攤平", () => {
+  const lib = new ModelLibrary(), mother = lib.create("reimu");
+  mother.setBuds(2, 1);
+  const stem = mother.root.getObjectByName("budding-stem")!;
+  const children = stem.children.filter((c) => c.name === "hanging-yukkuri");
+  mother.update(1, "disposed", "budding", 1);
+  expect(stem.visible).toBe(true);
+  expect(children).toHaveLength(2);
+  expect(mother.body.scale.y).toBeCloseTo(0.24);
+  for (const child of children) {
+    expect(child.children[0].scale.y).toBeCloseTo(0.24);
+  }
+  mother.dispose();
+  lib.dispose();
+});
+it("小油庫里芽殖時原地抖動，死亡後停止", () => {
+  const lib = new ModelLibrary(), child = lib.create("reimu");
+  child.update(0.1, "budding", undefined, 0, true);
+  const first = child.body.position.x;
+  child.update(0.2, "budding", undefined, 0, true);
+  expect(child.body.position.x).not.toBe(first);
+  expect(child.body.rotation.z).not.toBe(0);
+  child.update(1, "disposed", "budding", 1, true);
+  expect(child.body.position.x).toBe(0);
+  expect(child.body.rotation.z).toBe(0);
+  child.dispose();
+  lib.dispose();
+});

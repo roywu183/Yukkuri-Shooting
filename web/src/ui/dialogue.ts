@@ -19,7 +19,7 @@ export class DialogueView {
     const w = innerWidth,
       h = innerHeight,
       occupied: { x: number; y: number; width: number; height: number }[] = [];
-    const priority = { death: 0, witness: 1, idle: 2 };
+    const priority = { budding: 0, death: 1, witness: 2, idle: 3 };
     const speeches = [...s.speeches]
       .filter((x) => x.until > s.elapsed)
       .sort((a, b) => priority[a.event] - priority[b.event] || b.id - a.id);

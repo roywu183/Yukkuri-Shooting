@@ -193,16 +193,17 @@ export class GameView {
         m.root.rotation.y +=
           Math.atan2(Math.sin(turn), Math.cos(turn)) * Math.min(1, dt * 4);
       }
-      if (s.pending.some((p) => p.parentId === a.id))
+      if (a.budCount || s.pending.some((p) => p.parentId === a.id))
         m.root.rotation.y = a.budYaw ?? m.root.rotation.y;
       m.update(
         s.elapsed + a.phase,
         a.state,
         a.deathCause,
         s.elapsed - (a.deathAt ?? s.elapsed),
+        a.juvenile,
       );
       m.setBuds(
-        s.pending.filter((p) => p.parentId === a.id).length,
+        a.budCount ?? s.pending.filter((p) => p.parentId === a.id).length,
         (s.elapsed - (a.budStarted ?? s.elapsed)) / 0.8,
       );
     }

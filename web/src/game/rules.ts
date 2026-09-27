@@ -11,7 +11,7 @@ import { clearSegment, groundHeight, walkable } from "./navigation";
 import { budOrigin, hangingBud } from "./budding";
 import type { SoundEvent, SoundName } from "./sound";
 import { populationEvent, weightedSpecies } from "../data/population";
-import { dialoguePool, type DialogueEvent } from "../data/dialogue";
+import { dialoguePool, juvenileBuddingLine, type DialogueEvent } from "../data/dialogue";
 export type State =
   | "idle"
   | "moving"
@@ -46,13 +46,14 @@ export interface Actor {
   special: string;
   speed: number;
   fleeFrom?: V3;
-  deathCause?: "standard" | "poison";
+  deathCause?: "standard" | "poison" | "budding";
   deathAt?: number;
   age: number;
   marked: number;
   wanderLeft: number;
   budStarted?: number;
   budYaw?: number;
+  budCount?: number;
   exploded?: boolean;
   birth?: { from: V3; to: V3; at: number };
 }
@@ -103,6 +104,7 @@ export interface Result {
 }
 export interface Equipment {
   capacity: number;
+  specialCapacity: number;
   reload: number;
   velocity: number;
   sway: number;
@@ -144,6 +146,7 @@ export function gradeScore(s: Stats, count: number) {
 export function equipment(p: Progress): Equipment {
   const e: Equipment = {
     capacity: 5,
+    specialCapacity: 3,
     reload: 2,
     velocity: 1,
     sway: 1,
@@ -171,6 +174,7 @@ export function equipment(p: Progress): Equipment {
       e.predict ||= u.predict_ground_path;
       if (u.valuable_hat_threshold) e.hatThreshold = u.valuable_hat_threshold;
     }
+  e.specialCapacity = Math.min(5, 3 + e.capacity - 5);
   return e;
 }
 export class Session {
@@ -181,12 +185,29 @@ export class Session {
     actorId: number;
     pos: V3;
     text: string;
-    event: DialogueEvent;
+    event: DialogueEvent | "budding";
     until: number;
   }[] = [];
   private nextSpeechId = 1;
   private nextChatter = 2;
   private lastLines = new Map<string, string>();
+  private showSpeech(
+    a: Actor,
+    event: DialogueEvent | "budding",
+    spoken: string,
+    duration: number,
+  ) {
+    this.speeches = this.speeches.filter((s) => s.actorId !== a.id);
+    this.speeches.push({
+      id: this.nextSpeechId++,
+      actorId: a.id,
+      pos: [...a.pos],
+      text: spoken,
+      event,
+      until: this.elapsed + duration,
+    });
+    this.speeches = this.speeches.slice(-12);
+  }
   private say(a: Actor, event: DialogueEvent) {
     if (a.helper) return;
     const key = `${a.species}:${a.juvenile}:${event}`,
@@ -196,16 +217,7 @@ export class Session {
     );
     const text = pool[Math.floor(this.random() * pool.length)];
     this.lastLines.set(key, text);
-    this.speeches = this.speeches.filter((s) => s.actorId !== a.id);
-    this.speeches.push({
-      id: this.nextSpeechId++,
-      actorId: a.id,
-      pos: [...a.pos],
-      text,
-      event,
-      until: this.elapsed + (event === "death" ? 7 : 5),
-    });
-    this.speeches = this.speeches.slice(-12);
+    this.showSpeech(a, event, text, event === "death" ? 7 : 5);
   }
   private witnesses(victim: Actor) {
     const nearby = this.enemies
@@ -413,6 +425,12 @@ export class Session {
   availableAmmo: AmmoId[];
   ammo: AmmoId = "standard";
   rounds: number;
+  specialRounds: Record<Exclude<AmmoId, "standard">, number> = {
+    chili: 0,
+    coffee: 0,
+    marble_soda: 0,
+    budding: 0,
+  };
   reloadLeft = 0;
   cooldown = 0;
   elapsed = 0;
@@ -424,8 +442,6 @@ export class Session {
   pendingPoints = 0;
   collected: Record<string, number> = {};
   collectorPoints = 0;
-  reloadSpent = 0;
-  freeReload = true;
   feedback = "觀察地面路徑，留意綠色徽章。";
   lastImpact?: { pos: V3; kind: AmmoId; at: number };
   private nextId = 1;
@@ -439,6 +455,8 @@ export class Session {
   ) {
     this.equip = equipment(progress);
     this.rounds = this.equip.capacity;
+    for (const id of ammoOrder)
+      if (id !== "standard") this.specialRounds[id] = this.equip.specialCapacity;
     this.availableAmmo = ammoOrder.filter(
       (id) =>
         mission.available_ammo.includes(id) ||
@@ -662,6 +680,10 @@ export class Session {
       if (a.statusTime > 0) {
         a.statusTime -= dt;
         if (a.statusTime <= 0) {
+          if (a.state === "budding" && a.juvenile) {
+            this.dispose(a, "budding");
+            continue;
+          }
           if (["sleep", "stunned"].includes(a.state)) this.sound("wake", a.pos);
           a.state = "moving";
           a.fleeFrom = undefined;
@@ -878,11 +900,14 @@ export class Session {
       this.finished ||
       this.reloadLeft > 0 ||
       this.cooldown > 0 ||
-      this.rounds <= 0 ||
+      (this.ammo === "standard"
+        ? this.rounds <= 0
+        : this.specialRounds[this.ammo] <= 0) ||
       !this.availableAmmo.includes(this.ammo)
     )
       return false;
-    this.rounds--;
+    if (this.ammo === "standard") this.rounds--;
+    else this.specialRounds[this.ammo]--;
     this.sound(this.ammo);
     this.cooldown = 0.8;
     this.stats.shots++;
@@ -938,7 +963,7 @@ export class Session {
           continue;
         if (
           this.ammo === "budding" &&
-          this.pending.some((p) => p.parentId === a.id)
+          (a.state === "budding" || this.pending.some((p) => p.parentId === a.id))
         )
           continue;
         if (this.ammo === "chili") {
@@ -965,6 +990,7 @@ export class Session {
         !target.helper &&
         target.state !== "burning" &&
         target.state !== "poisoned" &&
+        (!target.juvenile || target.budStarted === undefined) &&
         !this.pending.some((p) => p.parentId === target.id)
       ) {
         target.budStarted = this.elapsed;
@@ -979,18 +1005,24 @@ export class Session {
           Math.floor(
             this.random() * (ammo.children_max - ammo.children_min + 1),
           );
-        for (let i = 0; i < count; i++)
-          this.pending.push({
-            species: target.species,
-            route: target.route.map((p) => [...p]),
-            origin: [...target.pos],
-            parentId: target.id,
-            attachment: hangingBud(i, count),
-            yaw: target.budYaw,
-            parentScale: target.scale,
-            due: this.elapsed + ammo.status_duration_seconds,
-          });
-        this.feedback = `芽殖中：已預約 ${count} 隻幼體。`;
+        if (target.juvenile) {
+          target.budCount = count;
+          this.showSpeech(target, "budding", juvenileBuddingLine, ammo.status_duration_seconds);
+          this.feedback = `芽殖中：枝條上的 ${count} 隻油庫里將與母體一同乾扁。`;
+        } else {
+          for (let i = 0; i < count; i++)
+            this.pending.push({
+              species: target.species,
+              route: target.route.map((p) => [...p]),
+              origin: [...target.pos],
+              parentId: target.id,
+              attachment: hangingBud(i, count),
+              yaw: target.budYaw,
+              parentScale: target.scale,
+              due: this.elapsed + ammo.status_duration_seconds,
+            });
+          this.feedback = `芽殖中：已預約 ${count} 隻幼體。`;
+        }
       }
     }
     if (target && !target.helper) this.frightenWitnesses(target.pos);
@@ -1020,12 +1052,12 @@ export class Session {
       this.wander(a);
     }
   }
-  private dispose(a: Actor, cause: "standard" | "poison" = "standard") {
+  private dispose(a: Actor, cause: "standard" | "poison" | "budding" = "standard") {
     if (a.state === "disposed") return;
     this.breakFamily(a);
     this.say(a, "death");
     this.witnesses(a);
-    a.deathCause = cause;
+    a.deathCause = a.juvenile && a.budCount ? "budding" : cause;
     a.deathAt = this.elapsed;
     a.birth = undefined;
     a.pos[1] = groundHeight(this.mission.map, a.pos[2]);
@@ -1055,23 +1087,6 @@ export class Session {
       this.rounds === this.equip.capacity
     )
       return false;
-    const cost = this.equip.capacity - this.rounds;
-    if (this.mode === "free") {
-      if (this.freeReload) this.freeReload = false;
-      else {
-        if (
-          this.progress.community +
-            this.pendingPoints +
-            this.collectorPoints -
-            this.reloadSpent <
-          cost
-        ) {
-          this.feedback = "社區點數不足，請先回收頭飾或離開結算。";
-          return false;
-        }
-        this.reloadSpent += cost;
-      }
-    }
     this.reloadLeft = this.equip.reload;
     this.sound("reloadOut");
     return true;
@@ -1194,7 +1209,7 @@ export class Session {
           : 0,
       community:
         this.mode === "free"
-          ? this.pendingPoints + this.collectorPoints - this.reloadSpent
+          ? this.pendingPoints + this.collectorPoints
           : 0,
       hats: this.mode === "free" ? { ...this.collected } : {},
       stats: { ...this.stats },

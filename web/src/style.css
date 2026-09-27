@@ -1034,3 +1034,4 @@ kbd {
 .speech-bubble::after {content:'';position:absolute;bottom:-8px;left:50%;width:12px;height:12px;background:inherit;border-right:2px solid #594f36;border-bottom:2px solid #594f36;transform:translateX(-50%) rotate(45deg);}
 .speech-bubble.witness {background:#fff0cfee;border-color:#b26d34;}
 .speech-bubble.death {background:#eee5e6f5;color:#593a4b;border-color:#795365;}
+.speech-bubble.budding {background:#fff0d9f5;color:#6b362e;border-color:#b96b45;}
