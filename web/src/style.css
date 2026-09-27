@@ -9,6 +9,12 @@
   --green: #315d4d;
   --gold: #c28c45;
 }
+html[lang="zh-Hans"] {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+html[lang="ja"] {
+  font-family: "Yu Gothic", "Meiryo", sans-serif;
+}
 * {
   box-sizing: border-box;
 }
@@ -187,6 +193,22 @@ nav {
   align-items: center;
   gap: 22px;
   margin-top: 35px;
+}
+.language-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 24px;
+}
+.language-switch button {
+  padding: 7px 12px;
+  font-size: 12px;
+  background: #f7f3e8dc;
+}
+.language-switch button.selected {
+  background: var(--green);
+  color: #fff8e8;
+  border-color: var(--green);
 }
 .text-button {
   border: 0;

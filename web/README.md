@@ -19,6 +19,8 @@
 
 切換分頁、視窗失焦、滑鼠控制解除均會暫停；必須點「繼續勤務」恢復。第一次出勤需透過按鈕授予滑鼠控制。
 
+主畫面的語言按鈕可切換繁體中文、簡體中文、日本語；選擇會保存在此瀏覽器，重新開啟遊戲後沿用。選單、任務文字、戰鬥提示與角色文字氣泡會隨語言更新。場景內的招牌屬於 3D 美術物件，維持原場景文字。
+
 ## 遊戲內容
 
 - 野生個體在安全地面隨機出生；長期種類比例為靈夢 35%、魔理沙 35%、橙 10%、愛麗絲 10%、帕秋莉 5%、妖夢 5%，包含家庭成員。一般體型為 0.7–1.3 倍，每次出勤重新隨機。
@@ -65,6 +67,7 @@ npm.cmd run preview
 
 ```powershell
 npm.cmd run test:browser
+node tools/locale-browser.mjs
 $env:BROWSER_CHANNEL = 'msedge'
 npm.cmd run test:browser
 Remove-Item Env:BROWSER_CHANNEL
@@ -82,6 +85,6 @@ npm.cmd run test:soak
 - `src/data`：遊戲內容快照、六種外觀及具型別內容。
 - `src/game`：固定時間步進、彈道、狀態機、計分、交易及存檔。
 - `src/render`：Three.js 模型、六區場景、射線命中與距離標尺。
-- `src/main.ts`、`src/ui`：繁體中文介面、操作協調及 Web Audio 音效。
+- `src/main.ts`、`src/ui`：三語介面、操作協調及 Web Audio 音效。
 
 `dist/` 可直接部署到任意靜態網站伺服器，資源路徑使用相對位置。禁止以 `file://` 直接雙擊 HTML；請透過 HTTP(S) 開啟。`main` 分支推送後，GitHub Actions 會重新建置並將 `web/dist/` 發布至 GitHub Pages。無外部模型、貼圖、字型或 API 依賴；Node.js 僅用於開發、建置與本機伺服器。

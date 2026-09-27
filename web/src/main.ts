@@ -20,6 +20,7 @@ import { Input } from "./game/input";
 import { GameView } from "./render/view";
 import { GameAudio } from "./ui/audio";
 import { DialogueView } from "./ui/dialogue";
+import { PageLocalizer, localeChoices, translateText, type Locale } from "./ui/locale";
 import * as T from "three";
 import { rangeMarks } from "./render/reticle";
 const escape = (s: string) =>
@@ -56,6 +57,7 @@ export class App {
   store: ProgressStore;
   audio = new GameAudio();
   dialogue!: DialogueView;
+  localizer!: PageLocalizer;
   session?: Session;
   screen = "home";
   selectedMap: MapId = "park";
@@ -114,6 +116,9 @@ export class App {
     };
     this.root.append(this.soundControls);
     this.dialogue = new DialogueView(this.root);
+    this.localizer = new PageLocalizer([this.ui, this.hud, this.notice, this.soundControls, this.dialogue.root]);
+    document.documentElement.lang = this.localizer.locale;
+    document.title = translateText("加工所：制高點", this.localizer.locale);
     try {
       this.view = new GameView(this.canvas);
     } catch (e) {
@@ -215,7 +220,7 @@ export class App {
     if (this.screen === "home") {
       this.ui.innerHTML =
         this.header() +
-        `<section class="hero"><div class="eyebrow"><span class="status-dot"></span> AOBA DISTRICT · OBSERVATION POST 01</div><h1>每一次瞄準，<br>都為了明天的<span>平靜。</span></h1><p class="hero-sub">加工所：制高點</p><p class="intro">登上觀測台，守望熟悉的街區。<br>觀察路徑、辨識目標，完成你的下一份勤務。</p><div class="hero-actions"><button class="primary" data-action="campaign">前往任務板 <span>↗</span></button><button class="text-button" data-action="gallery">認識六種油庫里 <span>→</span></button></div><div class="hero-stats"><div><b>06</b><span>巡守地區</span></div><div><b>18</b><span>驅逐任務</span></div><div><b>05</b><span>戰術彈種</span></div></div></section><aside class="post-label"><span>01 / 青葉公園</span><b>管理所屋頂</b><small>固定觀測台 · 第一人稱狙擊</small></aside><footer><span>勤務須知：綠色圓形徽章代表社區協力者，請勿誤傷。</span><span>THREE.JS EDITION / 01</span></footer>`;
+        `<section class="hero"><div class="eyebrow"><span class="status-dot"></span> AOBA DISTRICT · OBSERVATION POST 01</div><h1>每一次瞄準，<br>都為了明天的<span>平靜。</span></h1><p class="hero-sub">加工所：制高點</p><p class="intro">登上觀測台，守望熟悉的街區。<br>觀察路徑、辨識目標，完成你的下一份勤務。</p><div class="hero-actions"><button class="primary" data-action="campaign">前往任務板 <span>↗</span></button><button class="text-button" data-action="gallery">認識六種油庫里 <span>→</span></button></div><div class="language-switch" role="group" aria-label="語言">${localeChoices.map(({ id, label }) => `<button type="button" data-action="locale" data-id="${id}" aria-pressed="${this.localizer.locale === id}" class="${this.localizer.locale === id ? "selected" : ""}">${label}</button>`).join("")}</div><div class="hero-stats"><div><b>06</b><span>巡守地區</span></div><div><b>18</b><span>驅逐任務</span></div><div><b>05</b><span>戰術彈種</span></div></div></section><aside class="post-label"><span>01 / 青葉公園</span><b>管理所屋頂</b><small>固定觀測台 · 第一人稱狙擊</small></aside><footer><span>勤務須知：綠色圓形徽章代表社區協力者，請勿誤傷。</span><span>THREE.JS EDITION / 01</span></footer>`;
       return;
     }
     if (this.screen === "gallery") {
@@ -265,6 +270,11 @@ export class App {
       `<section class="workspace"><div class="workspace-title"><div><div class="eyebrow">AOBA FIELD OFFICE / 勤務管理</div><h1>${title}</h1></div><span class="save-hint">進度儲存在此瀏覽器</span></div>${body}</section>`;
   }
   async action(action: string, id?: string) {
+    if (action === "locale" && localeChoices.some((choice) => choice.id === id)) {
+      this.localizer.set(id as Locale);
+      this.renderMenu();
+      return;
+    }
     if (action === "discard-result") {
       this.session = undefined;
       await this.action(id ?? "campaign");
