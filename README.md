@@ -2,6 +2,8 @@
 
 目前開發版本為 **Three.js 電腦瀏覽器版**。全部場景、物件與六種油庫里以程式建立 3D 模型。
 
+**[線上開啟遊戲](https://roywu183.github.io/Yukkuri-Shooting/)**（電腦版 Chrome／Edge，使用鍵盤與滑鼠）。
+
 執行 `啟動瀏覽器版.ps1`，或在 PowerShell 輸入：
 
 ```powershell
