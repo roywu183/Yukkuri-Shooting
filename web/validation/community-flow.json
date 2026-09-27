@@ -1,0 +1,26 @@
+{
+  "completed": true,
+  "helpers": {
+    "park_bait": 3,
+    "park_collector": 1,
+    "park_scout": 1
+  },
+  "loadouts": {
+    "park": [
+      "park_bait",
+      "park_collector"
+    ]
+  },
+  "hatCount": 1,
+  "deployed": [
+    {
+      "id": "park_bait",
+      "helper": true
+    },
+    {
+      "id": "park_collector",
+      "helper": true
+    }
+  ],
+  "errors": []
+}

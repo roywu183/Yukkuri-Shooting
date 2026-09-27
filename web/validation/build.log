@@ -1,0 +1,14 @@
+
+> yukkuri-highground@1.0.0 build
+> tsc --noEmit && vite build --configLoader native
+
+vite v6.4.3 building for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.80 kB │ gzip:   0.52 kB
+dist/assets/index-BJpgLbrZ.css   13.57 kB │ gzip:   3.96 kB
+dist/assets/index-BczdOph6.js    92.44 kB │ gzip:  28.11 kB
+dist/assets/three-CJB_d5X4.js   514.63 kB │ gzip: 131.15 kB
+✓ built in 1.23s

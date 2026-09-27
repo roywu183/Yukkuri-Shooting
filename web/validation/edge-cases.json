@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "pointer unlock pauses",
+    "pointer-lock rejection recoverable",
+    "window blur pauses",
+    "failed settlement cannot silently discard result",
+    "failed settlement retry succeeds",
+    "upgraded scope has 20 m projected marks",
+    "real world occluder blocks shot",
+    "corrupt save recovered and original retained"
+  ],
+  "errors": [],
+  "completed": true
+}

@@ -1,0 +1,26 @@
+{
+  "name": "yukkuri-highground",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --configLoader native --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build --configLoader native",
+    "preview": "vite preview --configLoader native --host 127.0.0.1",
+    "test": "vitest run --configLoader native",
+    "test:browser": "node tools/browser-test.mjs",
+    "test:soak": "node tools/soak.mjs",
+    "format": "prettier --write src tests tools vite.config.mjs"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.180.0",
+    "playwright": "^1.55.1",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "vitest": "^3.2.4"
+  }
+}

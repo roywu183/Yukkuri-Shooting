@@ -1,0 +1,73 @@
+{
+  "setup": {
+    "offsets": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "moved": true,
+    "ages": [
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hit": {
+    "split": true,
+    "panic": true,
+    "speeches": [
+      {
+        "event": "death",
+        "text": "好想..再..油庫氣.."
+      },
+      {
+        "event": "witness",
+        "text": "好臭!這個好臭!"
+      },
+      {
+        "event": "witness",
+        "text": "塊陶阿！麻里恰不想永遠油庫氣noje！"
+      },
+      {
+        "event": "witness",
+        "text": "為什麼永遠油庫里了阿!!"
+      }
+    ]
+  },
+  "bounds": [
+    {
+      "left": 501.34375,
+      "right": 644.25,
+      "top": 360.5,
+      "bottom": 404.25
+    },
+    {
+      "left": 601.9453125,
+      "right": 796.4296875,
+      "top": 229.28125,
+      "bottom": 273.03125
+    },
+    {
+      "left": 513.3984375,
+      "right": 647.8828125,
+      "top": 120.03125,
+      "bottom": 163.78125
+    }
+  ],
+  "errors": [],
+  "fixture": "固定種子、手動步進及近距離相機；真實介面進場、暫停與恢復"
+}

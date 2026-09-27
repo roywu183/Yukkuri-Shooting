@@ -1,0 +1,91 @@
+{
+  "checks": [
+    "56 scene/gallery replacement cycles keep cached and GPU resource counts stable",
+    "hidden-document event freezes clock and foreground event cannot auto-resume",
+    "blocked localStorage still allows play and displays warning"
+  ],
+  "samples": [
+    {
+      "fps": 110.09401286491826,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 144.00576023040907,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 144.00576023040912,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 142.78914802475,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 144.00576023040912,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 144.02304368698972,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 142.8061406640483,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    },
+    {
+      "fps": 143.98848092152616,
+      "geometries": 13,
+      "textures": 4,
+      "calls": 593,
+      "triangles": 178488,
+      "actors": 12,
+      "drops": 0,
+      "resources": 114
+    }
+  ],
+  "errors": [],
+  "completed": true
+}

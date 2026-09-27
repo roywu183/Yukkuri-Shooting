@@ -1,0 +1,145 @@
+{
+  "channel": "chrome",
+  "errors": [],
+  "wheel": {
+    "start": 22,
+    "zoomIn": 14,
+    "zoomOut": 22
+  },
+  "initialExplosion": {
+    "kills": 1,
+    "fragments": 14,
+    "pending": 0,
+    "children": 0,
+    "falling": 0,
+    "bursts": 1
+  },
+  "chain": {
+    "kills": 3,
+    "fragments": 28,
+    "pending": 0,
+    "children": 0,
+    "falling": 0,
+    "bursts": 3
+  },
+  "cleanup": {
+    "kills": 3,
+    "fragments": 0,
+    "pending": 0,
+    "children": 0,
+    "falling": 0,
+    "bursts": 0
+  },
+  "buds": [
+    {
+      "count": 2,
+      "mounted": {
+        "visible": true,
+        "count": 2
+      },
+      "before": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 2,
+        "children": 0,
+        "falling": 0,
+        "bursts": 0
+      },
+      "born": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 0,
+        "children": 2,
+        "falling": 2,
+        "bursts": 0
+      },
+      "landed": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 0,
+        "children": 2,
+        "falling": 0,
+        "bursts": 0
+      }
+    },
+    {
+      "count": 3,
+      "mounted": {
+        "visible": true,
+        "count": 3
+      },
+      "before": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 3,
+        "children": 0,
+        "falling": 0,
+        "bursts": 0
+      },
+      "born": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 0,
+        "children": 3,
+        "falling": 3,
+        "bursts": 0
+      },
+      "landed": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 0,
+        "children": 3,
+        "falling": 0,
+        "bursts": 0
+      }
+    },
+    {
+      "count": 1,
+      "mounted": {
+        "visible": true,
+        "count": 1
+      },
+      "before": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 1,
+        "children": 0,
+        "falling": 0,
+        "bursts": 0
+      },
+      "born": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 0,
+        "children": 1,
+        "falling": 1,
+        "bursts": 0
+      },
+      "landed": {
+        "kills": 0,
+        "fragments": 0,
+        "pending": 0,
+        "children": 1,
+        "falling": 0,
+        "bursts": 0
+      }
+    }
+  ],
+  "unlimited": {
+    "expected": 73,
+    "born": 73,
+    "active": 85,
+    "pending": 0
+  },
+  "metrics": {
+    "fps": 139.3566368598303,
+    "geometries": 15,
+    "textures": 6,
+    "calls": 226,
+    "triangles": 82284,
+    "actors": 85,
+    "drops": 0,
+    "resources": 83
+  },
+  "completed": true
+}

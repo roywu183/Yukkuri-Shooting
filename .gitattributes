@@ -1,0 +1,4 @@
+# Keep source and built-file hashes stable across Windows checkouts.
+web/src/** text=auto eol=lf
+# Generated Three.js shader strings intentionally retain whitespace.
+web/dist/** text=auto eol=lf -whitespace

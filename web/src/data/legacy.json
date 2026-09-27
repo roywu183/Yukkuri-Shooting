@@ -1,0 +1,1203 @@
+{
+  "ammo": [
+    {
+      "muzzle_velocity": 500,
+      "damage": 0,
+      "effect_id": "budding",
+      "effect_radius": 0,
+      "status_duration_seconds": 10,
+      "children_min": 2,
+      "children_max": 3,
+      "id": "budding"
+    },
+    {
+      "muzzle_velocity": 500,
+      "damage": 1,
+      "effect_id": "chili",
+      "effect_radius": 4,
+      "status_duration_seconds": 0,
+      "children_min": 2,
+      "children_max": 3,
+      "id": "chili"
+    },
+    {
+      "muzzle_velocity": 500,
+      "damage": 0,
+      "effect_id": "coffee",
+      "effect_radius": 3.5,
+      "status_duration_seconds": 4,
+      "children_min": 2,
+      "children_max": 3,
+      "id": "coffee"
+    },
+    {
+      "muzzle_velocity": 500,
+      "damage": 0,
+      "effect_id": "marble_soda",
+      "effect_radius": 0,
+      "status_duration_seconds": 8,
+      "children_min": 2,
+      "children_max": 3,
+      "id": "marble_soda"
+    },
+    {
+      "muzzle_velocity": 500,
+      "damage": 1,
+      "effect_id": "standard",
+      "effect_radius": 0,
+      "status_duration_seconds": 0,
+      "children_min": 2,
+      "children_max": 3,
+      "id": "standard"
+    }
+  ],
+  "maps": [
+    {
+      "id": "city",
+      "display_name": "市中心",
+      "scene_path": "res://scenes/maps/city.tscn",
+      "free_scene_path": "res://scenes/free/city_free_mode.tscn"
+    },
+    {
+      "id": "factory",
+      "display_name": "工廠區",
+      "scene_path": "res://scenes/maps/factory.tscn",
+      "free_scene_path": "res://scenes/free/factory_free_mode.tscn"
+    },
+    {
+      "id": "joint",
+      "display_name": "六區聯合管制區",
+      "scene_path": "res://scenes/maps/joint_extermination.tscn"
+    },
+    {
+      "id": "park",
+      "display_name": "青葉公園",
+      "scene_path": "res://scenes/park/park_mission.tscn",
+      "free_scene_path": "res://scenes/free/park_free_mode.tscn"
+    },
+    {
+      "id": "residential",
+      "display_name": "住宅區",
+      "scene_path": "res://scenes/maps/residential.tscn",
+      "free_scene_path": "res://scenes/free/residential_free_mode.tscn"
+    },
+    {
+      "id": "rural",
+      "display_name": "鄉間",
+      "scene_path": "res://scenes/maps/rural.tscn",
+      "free_scene_path": "res://scenes/free/rural_free_mode.tscn"
+    },
+    {
+      "id": "shopping_street",
+      "display_name": "商店街",
+      "scene_path": "res://scenes/maps/shopping_street.tscn",
+      "free_scene_path": "res://scenes/free/shopping_street_free_mode.tscn"
+    }
+  ],
+  "missions": [
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 90,
+      "wind": [0.85, 0, 0],
+      "initial_enemy_count": 10,
+      "sequence_in_map": 1,
+      "mission_kind": "教學",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "大樓之間的後巷需要有人照看。",
+        "社區代表把平安開店的希望交給加工所。"
+      ],
+      "id": "city_01",
+      "max_enemy_count": 14,
+      "time_limit_seconds": 360,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "市中心・教學",
+      "briefing": "無線電／加工所\n\n熟悉本區固定觀測台與三條巡邏路線，完成後開放本區自由模式。\n\n限時 6 分鐘，初始 10 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "city",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "park_03"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 100,
+      "wind": [1.25, 0, 0],
+      "initial_enemy_count": 14,
+      "sequence_in_map": 2,
+      "mission_kind": "壓力",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "大樓之間的後巷需要有人照看。",
+        "社區代表把平安開店的希望交給加工所。"
+      ],
+      "id": "city_02",
+      "max_enemy_count": 18,
+      "time_limit_seconds": 420,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "市中心・壓力",
+      "briefing": "無線電／加工所\n\n目標密度提高，利用連續命中與裝填空檔分配火力。\n\n限時 7 分鐘，初始 14 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "city",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "city_01"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 110,
+      "wind": [1.65, 0, 0],
+      "initial_enemy_count": 14,
+      "sequence_in_map": 3,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.5,
+      "required_missions": [],
+      "story_lines": [
+        "大樓之間的後巷需要有人照看。",
+        "社區代表把平安開店的希望交給加工所。"
+      ],
+      "id": "city_03",
+      "max_enemy_count": 18,
+      "time_limit_seconds": 480,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "市中心・特殊條件",
+      "briefing": "無線電／加工所\n\n本次特殊條件：附帶損害必須為零，命中率至少 50%，才可推進戰役。橫風增強，請先觀察再開火。\n\n限時 8 分鐘，初始 14 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "city",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "city_02"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 150,
+      "wind": [1.6, 0, 0],
+      "initial_enemy_count": 13,
+      "sequence_in_map": 1,
+      "mission_kind": "教學",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "工人們準備恢復下一班生產。",
+        "回收者也會協助守住廠區的邊界。"
+      ],
+      "id": "factory_01",
+      "max_enemy_count": 17,
+      "time_limit_seconds": 360,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "工廠區・教學",
+      "briefing": "無線電／加工所\n\n熟悉本區固定觀測台與三條巡邏路線，完成後開放本區自由模式。\n\n限時 6 分鐘，初始 13 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "factory",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "shopping_03"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 160,
+      "wind": [2, 0, 0],
+      "initial_enemy_count": 20,
+      "sequence_in_map": 2,
+      "mission_kind": "壓力",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "工人們準備恢復下一班生產。",
+        "回收者也會協助守住廠區的邊界。"
+      ],
+      "id": "factory_02",
+      "max_enemy_count": 24,
+      "time_limit_seconds": 420,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "工廠區・壓力",
+      "briefing": "無線電／加工所\n\n目標密度提高，利用連續命中與裝填空檔分配火力。\n\n限時 7 分鐘，初始 20 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "factory",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "factory_01"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 170,
+      "wind": [2.4, 0, 0],
+      "initial_enemy_count": 20,
+      "sequence_in_map": 3,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.5,
+      "required_missions": [],
+      "story_lines": [
+        "工人們準備恢復下一班生產。",
+        "回收者也會協助守住廠區的邊界。"
+      ],
+      "id": "factory_03",
+      "max_enemy_count": 24,
+      "time_limit_seconds": 480,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "工廠區・特殊條件",
+      "briefing": "無線電／加工所\n\n本次特殊條件：附帶損害必須為零，命中率至少 50%，才可推進戰役。橫風增強，請先觀察再開火。\n\n限時 8 分鐘，初始 20 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "factory",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "factory_02"
+    },
+    {
+      "enemy_overrides": {
+        "city": "park_observant",
+        "rural": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 400,
+      "wind": [3.1, 0, 0],
+      "initial_enemy_count": 36,
+      "sequence_in_map": 0,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.6,
+      "required_missions": [
+        "park_03",
+        "city_03",
+        "residential_03",
+        "shopping_03",
+        "factory_03",
+        "rural_03"
+      ],
+      "story_lines": [
+        "六區的聯絡人已共同確認驅逐路線。",
+        "守住這座觀測台，為加工所與社區完成最後一次聯合勤務。"
+      ],
+      "id": "joint_extermination",
+      "display_name": "一齊驅逐・六區聯合作戰",
+      "map": "joint",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "max_enemy_count": 42,
+      "time_limit_seconds": 600,
+      "spawn_nodes": [
+        "park",
+        "city",
+        "residential",
+        "shopping_street",
+        "factory",
+        "rural"
+      ]
+    },
+    {
+      "enemy_overrides": {
+        "BenchWest": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 50,
+      "wind": [0.6, 0, 0],
+      "initial_enemy_count": 0,
+      "sequence_in_map": 1,
+      "mission_kind": "教學",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "第一份勤務從社區的公園開始。",
+        "管理員請你守住孩子們明天要走的步道。"
+      ],
+      "id": "park_01",
+      "max_enemy_count": 9,
+      "time_limit_seconds": 360,
+      "spawn_nodes": [
+        "BenchWest",
+        "PlaygroundEast",
+        "NorthWalk",
+        "BenchWest2",
+        "PlaygroundEast2",
+        "NorthWalk2",
+        "BenchWest3",
+        "PlaygroundEast3",
+        "NorthWalk3"
+      ],
+      "display_name": "01  青葉公園・初次勤務",
+      "briefing": "無線電／管理所\n\n已確認 9 隻野生頭種。你的位置是管理所屋頂，請監看長椅、遊具與北側步道。\n\n限時 6 分鐘；全數處置可提早回報。瞄準上半部可取得關鍵命中，連續命中同樣提高評等。留意橫風、下墜與遮蔽物，射擊公園設施會扣分。\n\n滑鼠：瞄準　右鍵：按住放大　左鍵：射擊\nR：換彈　Tab：彈種　Esc：釋放／重新鎖定游標\n\n本次配發普通彈，備彈充足。綠色圓徽章代表協力者，請勿誤傷。",
+      "map": "park",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"]
+    },
+    {
+      "enemy_overrides": {
+        "BenchWest": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 80,
+      "wind": [1, 0, 0],
+      "initial_enemy_count": 12,
+      "sequence_in_map": 2,
+      "mission_kind": "壓力",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "第一份勤務從社區的公園開始。",
+        "管理員請你守住孩子們明天要走的步道。"
+      ],
+      "id": "park_02",
+      "max_enemy_count": 16,
+      "time_limit_seconds": 420,
+      "spawn_nodes": [
+        "BenchWest",
+        "PlaygroundEast",
+        "NorthWalk",
+        "BenchWest2",
+        "PlaygroundEast2",
+        "NorthWalk2",
+        "BenchWest3",
+        "PlaygroundEast3",
+        "NorthWalk3"
+      ],
+      "display_name": "青葉公園・壓力",
+      "briefing": "無線電／加工所\n\n目標密度提高，利用連續命中與裝填空檔分配火力。\n\n限時 7 分鐘，初始 12 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "park",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "park_01"
+    },
+    {
+      "enemy_overrides": {
+        "BenchWest": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 90,
+      "wind": [1.4, 0, 0],
+      "initial_enemy_count": 12,
+      "sequence_in_map": 3,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.5,
+      "required_missions": [],
+      "story_lines": [
+        "第一份勤務從社區的公園開始。",
+        "管理員請你守住孩子們明天要走的步道。"
+      ],
+      "id": "park_03",
+      "max_enemy_count": 16,
+      "time_limit_seconds": 480,
+      "spawn_nodes": [
+        "BenchWest",
+        "PlaygroundEast",
+        "NorthWalk",
+        "BenchWest2",
+        "PlaygroundEast2",
+        "NorthWalk2",
+        "BenchWest3",
+        "PlaygroundEast3",
+        "NorthWalk3"
+      ],
+      "display_name": "青葉公園・特殊條件",
+      "briefing": "無線電／加工所\n\n本次特殊條件：附帶損害必須為零，命中率至少 50%，才可推進戰役。橫風增強，請先觀察再開火。\n\n限時 8 分鐘，初始 12 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "park",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "park_02"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {
+        "CommunityRoutes/SpawnNodes/ResidentWest": "residential_resident",
+        "CommunityRoutes/SpawnNodes/ResidentEast": "residential_resident"
+      },
+      "base_reward": 110,
+      "wind": [1.1, 0, 0],
+      "initial_enemy_count": 11,
+      "sequence_in_map": 1,
+      "mission_kind": "教學",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "住戶已經辨認出佩戴徽章的協力者。",
+        "請用準確的判讀回應他們的信任。"
+      ],
+      "id": "residential_01",
+      "max_enemy_count": 15,
+      "time_limit_seconds": 360,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "住宅區・教學",
+      "briefing": "無線電／加工所\n\n熟悉本區固定觀測台與三條巡邏路線，完成後開放本區自由模式。\n\n限時 6 分鐘，初始 11 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "residential",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "city_03"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {
+        "CommunityRoutes/SpawnNodes/ResidentWest": "residential_resident",
+        "CommunityRoutes/SpawnNodes/ResidentEast": "residential_resident"
+      },
+      "base_reward": 120,
+      "wind": [1.5, 0, 0],
+      "initial_enemy_count": 16,
+      "sequence_in_map": 2,
+      "mission_kind": "壓力",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "住戶已經辨認出佩戴徽章的協力者。",
+        "請用準確的判讀回應他們的信任。"
+      ],
+      "id": "residential_02",
+      "max_enemy_count": 20,
+      "time_limit_seconds": 420,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "住宅區・壓力",
+      "briefing": "無線電／加工所\n\n目標密度提高，利用連續命中與裝填空檔分配火力。\n\n限時 7 分鐘，初始 16 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "residential",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "residential_01"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {
+        "CommunityRoutes/SpawnNodes/ResidentWest": "residential_resident",
+        "CommunityRoutes/SpawnNodes/ResidentEast": "residential_resident"
+      },
+      "base_reward": 130,
+      "wind": [1.9, 0, 0],
+      "initial_enemy_count": 16,
+      "sequence_in_map": 3,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.5,
+      "required_missions": [],
+      "story_lines": [
+        "住戶已經辨認出佩戴徽章的協力者。",
+        "請用準確的判讀回應他們的信任。"
+      ],
+      "id": "residential_03",
+      "max_enemy_count": 20,
+      "time_limit_seconds": 480,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "住宅區・特殊條件",
+      "briefing": "無線電／加工所\n\n本次特殊條件：附帶損害必須為零，命中率至少 50%，才可推進戰役。橫風增強，請先觀察再開火。\n\n限時 8 分鐘，初始 16 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "residential",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "residential_02"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 170,
+      "wind": [1.85, 0, 0],
+      "initial_enemy_count": 14,
+      "sequence_in_map": 1,
+      "mission_kind": "教學",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "獵寮傳來最後一區的求援。",
+        "走過六區後，你已明白這份工作仰賴彼此配合。"
+      ],
+      "id": "rural_01",
+      "max_enemy_count": 18,
+      "time_limit_seconds": 360,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "鄉間・教學",
+      "briefing": "無線電／加工所\n\n熟悉本區固定觀測台與三條巡邏路線，完成後開放本區自由模式。\n\n限時 6 分鐘，初始 14 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "rural",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "factory_03"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 180,
+      "wind": [2.25, 0, 0],
+      "initial_enemy_count": 22,
+      "sequence_in_map": 2,
+      "mission_kind": "壓力",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "獵寮傳來最後一區的求援。",
+        "走過六區後，你已明白這份工作仰賴彼此配合。"
+      ],
+      "id": "rural_02",
+      "max_enemy_count": 26,
+      "time_limit_seconds": 420,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "鄉間・壓力",
+      "briefing": "無線電／加工所\n\n目標密度提高，利用連續命中與裝填空檔分配火力。\n\n限時 7 分鐘，初始 22 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "rural",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "rural_01"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 190,
+      "wind": [2.65, 0, 0],
+      "initial_enemy_count": 22,
+      "sequence_in_map": 3,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.5,
+      "required_missions": [],
+      "story_lines": [
+        "獵寮傳來最後一區的求援。",
+        "走過六區後，你已明白這份工作仰賴彼此配合。"
+      ],
+      "id": "rural_03",
+      "max_enemy_count": 26,
+      "time_limit_seconds": 480,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "鄉間・特殊條件",
+      "briefing": "無線電／加工所\n\n本次特殊條件：附帶損害必須為零，命中率至少 50%，才可推進戰役。橫風增強，請先觀察再開火。\n\n限時 8 分鐘，初始 22 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "rural",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "rural_02"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 130,
+      "wind": [1.35, 0, 0],
+      "initial_enemy_count": 12,
+      "sequence_in_map": 1,
+      "mission_kind": "教學",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "店主們一起整理了商店街。",
+        "這次勤務要替明天的市集留下乾淨道路。"
+      ],
+      "id": "shopping_01",
+      "max_enemy_count": 16,
+      "time_limit_seconds": 360,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "商店街・教學",
+      "briefing": "無線電／加工所\n\n熟悉本區固定觀測台與三條巡邏路線，完成後開放本區自由模式。\n\n限時 6 分鐘，初始 12 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "shopping_street",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "residential_03"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 140,
+      "wind": [1.75, 0, 0],
+      "initial_enemy_count": 18,
+      "sequence_in_map": 2,
+      "mission_kind": "壓力",
+      "max_collateral_damage": -1,
+      "minimum_accuracy": 0,
+      "required_missions": [],
+      "story_lines": [
+        "店主們一起整理了商店街。",
+        "這次勤務要替明天的市集留下乾淨道路。"
+      ],
+      "id": "shopping_02",
+      "max_enemy_count": 22,
+      "time_limit_seconds": 420,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "商店街・壓力",
+      "briefing": "無線電／加工所\n\n目標密度提高，利用連續命中與裝填空檔分配火力。\n\n限時 7 分鐘，初始 18 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "shopping_street",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "shopping_01"
+    },
+    {
+      "enemy_overrides": {
+        "Regional0": "park_observant"
+      },
+      "community_spawns": {},
+      "base_reward": 150,
+      "wind": [2.15, 0, 0],
+      "initial_enemy_count": 18,
+      "sequence_in_map": 3,
+      "mission_kind": "特殊條件",
+      "max_collateral_damage": 0,
+      "minimum_accuracy": 0.5,
+      "required_missions": [],
+      "story_lines": [
+        "店主們一起整理了商店街。",
+        "這次勤務要替明天的市集留下乾淨道路。"
+      ],
+      "id": "shopping_03",
+      "max_enemy_count": 22,
+      "time_limit_seconds": 480,
+      "spawn_nodes": ["Regional0", "Regional1", "Regional2"],
+      "display_name": "商店街・特殊條件",
+      "briefing": "無線電／加工所\n\n本次特殊條件：附帶損害必須為零，命中率至少 50%，才可推進戰役。橫風增強，請先觀察再開火。\n\n限時 8 分鐘，初始 18 隻野生頭種。普通彈配發充足，已購許可彈可按 Tab 切換。請勿誤傷綠色圓徽章協力者。\n\n右鍵放大、左鍵射擊、R 裝填、Tab 彈種、Esc 游標。",
+      "map": "shopping_street",
+      "enemy": "park_wild",
+      "available_ammo": ["standard"],
+      "prerequisite_mission": "shopping_02"
+    }
+  ],
+  "upgrades": [
+    {
+      "cost": 25,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "license_budding",
+      "display_name": "芽殖彈許可",
+      "description": "購買後每次出勤可用 Tab 切換此彈種。",
+      "ammo_license": "budding",
+      "prerequisite_mission": "park_01"
+    },
+    {
+      "cost": 25,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "license_chili",
+      "display_name": "辣椒彈許可",
+      "description": "購買後每次出勤可用 Tab 切換此彈種。",
+      "ammo_license": "chili",
+      "prerequisite_mission": "park_01"
+    },
+    {
+      "cost": 25,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "license_coffee",
+      "display_name": "咖啡彈許可",
+      "description": "購買後每次出勤可用 Tab 切換此彈種。",
+      "ammo_license": "coffee",
+      "prerequisite_mission": "park_01"
+    },
+    {
+      "cost": 25,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "license_marble_soda",
+      "display_name": "彈珠汽水彈許可",
+      "description": "購買後每次出勤可用 Tab 切換此彈種。",
+      "ammo_license": "marble_soda",
+      "prerequisite_mission": "park_01"
+    },
+    {
+      "cost": 60,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 3,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "magazine_capacity_1",
+      "display_name": "擴充彈匣",
+      "description": "擴充彈匣：於下次出勤套用。"
+    },
+    {
+      "cost": 50,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 0.75,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "magazine_reload_1",
+      "display_name": "快速彈匣",
+      "description": "快速彈匣：於下次出勤套用。"
+    },
+    {
+      "cost": 40,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 120,
+      "identify_special_individuals": true,
+      "predict_ground_path": true,
+      "valuable_hat_threshold": 80,
+      "id": "perception_1",
+      "display_name": "目標感知",
+      "description": "識別特殊個體、預告下一巡邏點，並提示估值至少 80 的完整高價頭飾。"
+    },
+    {
+      "cost": 60,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 0.8,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "rifle_reload_1",
+      "display_name": "裝填機構",
+      "description": "裝填機構：於下次出勤套用。"
+    },
+    {
+      "cost": 70,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1.5,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "rifle_speed_1",
+      "display_name": "高初速槍管",
+      "description": "子彈初速提高 50%，縮短飛行時間，降低橫風偏移與重力下墜。"
+    },
+    {
+      "cost": 50,
+      "max_level": 1,
+      "sway_multiplier": 0.55,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "rifle_stability_1",
+      "display_name": "槍身穩定",
+      "description": "槍身穩定：於下次出勤套用。"
+    },
+    {
+      "cost": 40,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 150,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "scope_marking_1",
+      "display_name": "遠距標記",
+      "description": "遠距標記：於下次出勤套用。"
+    },
+    {
+      "cost": 30,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 3,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "scope_ticks_1",
+      "display_name": "距離標尺",
+      "description": "彈道參考由每 50 m 細分為每 20 m；依當前倍率、彈速與風偏投影。金十字顯示中心測距下的近似落點。"
+    },
+    {
+      "cost": 40,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 1,
+      "range_ticks_bonus": 0,
+      "show_wind": true,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "scope_wind_1",
+      "display_name": "風向資訊",
+      "description": "風向資訊：於下次出勤套用。"
+    },
+    {
+      "cost": 70,
+      "max_level": 1,
+      "sway_multiplier": 1,
+      "muzzle_velocity_multiplier": 1,
+      "reload_multiplier": 1,
+      "magazine_bonus": 0,
+      "scope_fov_multiplier": 0.65,
+      "range_ticks_bonus": 0,
+      "show_wind": false,
+      "marking_range_bonus": 0,
+      "perception_range_bonus": 0,
+      "identify_special_individuals": false,
+      "predict_ground_path": false,
+      "valuable_hat_threshold": 0,
+      "id": "scope_zoom_1",
+      "display_name": "高倍率鏡",
+      "description": "高倍率鏡：於下次出勤套用。"
+    }
+  ],
+  "helpers": [
+    {
+      "specialty": "collector",
+      "recruit_cost": 16,
+      "upgrade_costs": [10, 18],
+      "effect_radius": 40,
+      "effect_duration": 3,
+      "support_interval": 2,
+      "id": "city_collector",
+      "map_id": "city",
+      "display_name": "市中心・回収班"
+    },
+    {
+      "specialty": "disrupt",
+      "recruit_cost": 15,
+      "upgrade_costs": [9, 17],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "city_disrupt",
+      "map_id": "city",
+      "display_name": "市中心・妨害屋"
+    },
+    {
+      "specialty": "scout",
+      "recruit_cost": 13,
+      "upgrade_costs": [8, 15],
+      "effect_radius": 60,
+      "effect_duration": 5,
+      "support_interval": 4,
+      "id": "city_scout",
+      "map_id": "city",
+      "display_name": "市中心・高見"
+    },
+    {
+      "specialty": "collector",
+      "recruit_cost": 16,
+      "upgrade_costs": [10, 18],
+      "effect_radius": 40,
+      "effect_duration": 3,
+      "support_interval": 2,
+      "id": "factory_collector",
+      "map_id": "factory",
+      "display_name": "工廠區・回収係"
+    },
+    {
+      "specialty": "disrupt",
+      "recruit_cost": 18,
+      "upgrade_costs": [11, 20],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "factory_disrupt",
+      "map_id": "factory",
+      "display_name": "工廠區・停止係"
+    },
+    {
+      "specialty": "scout",
+      "recruit_cost": 15,
+      "upgrade_costs": [9, 17],
+      "effect_radius": 60,
+      "effect_duration": 5,
+      "support_interval": 4,
+      "id": "factory_scout",
+      "map_id": "factory",
+      "display_name": "工廠區・監視係"
+    },
+    {
+      "specialty": "bait",
+      "recruit_cost": 12,
+      "upgrade_costs": [8, 14],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "park_bait",
+      "map_id": "park",
+      "display_name": "青葉公園・呼び込み"
+    },
+    {
+      "specialty": "collector",
+      "recruit_cost": 14,
+      "upgrade_costs": [9, 16],
+      "effect_radius": 40,
+      "effect_duration": 3,
+      "support_interval": 2,
+      "id": "park_collector",
+      "map_id": "park",
+      "display_name": "青葉公園・拾い屋"
+    },
+    {
+      "specialty": "scout",
+      "recruit_cost": 10,
+      "upgrade_costs": [6, 11],
+      "effect_radius": 60,
+      "effect_duration": 5,
+      "support_interval": 4,
+      "id": "park_scout",
+      "map_id": "park",
+      "display_name": "青葉公園・見張り丸"
+    },
+    {
+      "specialty": "bait",
+      "recruit_cost": 13,
+      "upgrade_costs": [8, 15],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "residential_bait",
+      "map_id": "residential",
+      "display_name": "住宅區・お誘い"
+    },
+    {
+      "specialty": "collector",
+      "recruit_cost": 14,
+      "upgrade_costs": [9, 16],
+      "effect_radius": 40,
+      "effect_duration": 3,
+      "support_interval": 2,
+      "id": "residential_collector",
+      "map_id": "residential",
+      "display_name": "住宅區・拾い手"
+    },
+    {
+      "specialty": "disrupt",
+      "recruit_cost": 15,
+      "upgrade_costs": [9, 17],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "residential_disrupt",
+      "map_id": "residential",
+      "display_name": "住宅區・足止め"
+    },
+    {
+      "specialty": "bait",
+      "recruit_cost": 14,
+      "upgrade_costs": [9, 16],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "rural_bait",
+      "map_id": "rural",
+      "display_name": "鄉間・呼び子"
+    },
+    {
+      "specialty": "collector",
+      "recruit_cost": 15,
+      "upgrade_costs": [9, 17],
+      "effect_radius": 40,
+      "effect_duration": 3,
+      "support_interval": 2,
+      "id": "rural_collector",
+      "map_id": "rural",
+      "display_name": "鄉間・拾い子"
+    },
+    {
+      "specialty": "disrupt",
+      "recruit_cost": 17,
+      "upgrade_costs": [11, 19],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "rural_disrupt",
+      "map_id": "rural",
+      "display_name": "鄉間・かき乱し"
+    },
+    {
+      "specialty": "bait",
+      "recruit_cost": 15,
+      "upgrade_costs": [9, 17],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "shopping_bait",
+      "map_id": "shopping_street",
+      "display_name": "商店街・客寄せ"
+    },
+    {
+      "specialty": "disrupt",
+      "recruit_cost": 17,
+      "upgrade_costs": [11, 19],
+      "effect_radius": 24,
+      "effect_duration": 3,
+      "support_interval": 4,
+      "id": "shopping_disrupt",
+      "map_id": "shopping_street",
+      "display_name": "商店街・騒がせ"
+    },
+    {
+      "specialty": "scout",
+      "recruit_cost": 14,
+      "upgrade_costs": [9, 16],
+      "effect_radius": 60,
+      "effect_duration": 5,
+      "support_interval": 4,
+      "id": "shopping_scout",
+      "map_id": "shopping_street",
+      "display_name": "商店街・目利き"
+    }
+  ],
+  "headwear": [
+    {
+      "rarity": "common",
+      "community_value": 20,
+      "id": "common_hat",
+      "display_name": "紅緞帶頭飾",
+      "set_id": "park_set"
+    },
+    {
+      "rarity": "rare",
+      "community_value": 100,
+      "id": "rare_hat",
+      "display_name": "手工緞帶頭飾",
+      "set_id": "park_set"
+    }
+  ],
+  "yukkuri": [
+    {
+      "is_community_helper": false,
+      "special_identity": "慎重個體",
+      "hat_display_name": "普通頭飾",
+      "hat_appraised_value": 20,
+      "id": "park_observant",
+      "ground_speed": 0.38,
+      "headwear": "rare_hat"
+    },
+    {
+      "is_community_helper": false,
+      "special_identity": "",
+      "hat_display_name": "普通頭飾",
+      "hat_appraised_value": 20,
+      "id": "park_wild",
+      "ground_speed": 0.38,
+      "headwear": "common_hat"
+    },
+    {
+      "is_community_helper": true,
+      "special_identity": "住宅區地區個體・請勿射擊",
+      "hat_display_name": "普通頭飾",
+      "hat_appraised_value": 20,
+      "id": "residential_resident",
+      "ground_speed": 0.32,
+      "headwear": "common_hat"
+    }
+  ]
+}

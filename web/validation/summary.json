@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-09-26T10:35:57.153Z",
+  "sourceHash": "3c1f047203d4d5dff2f95fb51d50b6b230a14534c8b935031fec4071cea192bf",
+  "durationSeconds": 1800.905,
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00002484) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "samples": 61,
+  "afterWarmup": {
+    "fpsRolling120Frames": {
+      "min": 143.98848092150212,
+      "max": 144.02304368699794
+    },
+    "geometries": {
+      "min": 14,
+      "max": 14
+    },
+    "textures": {
+      "min": 8,
+      "max": 8
+    },
+    "resources": {
+      "min": 94,
+      "max": 94
+    },
+    "actors": {
+      "min": 9,
+      "max": 14
+    },
+    "drops": {
+      "min": 0,
+      "max": 1
+    },
+    "jsHeapBytes": {
+      "min": 31995787,
+      "max": 57916199
+    }
+  },
+  "finalSample": {
+    "wallSeconds": 1800.738,
+    "fps": 144.00576023044138,
+    "geometries": 14,
+    "textures": 8,
+    "calls": 479,
+    "triangles": 180852,
+    "actors": 13,
+    "drops": 1,
+    "resources": 94,
+    "simSeconds": 1801.2833333320239,
+    "spawned": 718,
+    "kills": 707,
+    "pending": 2,
+    "active": 11,
+    "jsHeap": 45687919,
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3070 (0x00002484) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+  },
+  "browserRuns": 24,
+  "freshCampaignMissions": 19,
+  "unitTests": 61,
+  "files": {
+    "dist/index.html": "d6f95ff5a3b64321b15588b6caa3068afc2588d3abd1d0ac0f658ce4570f3c3c",
+    "dist/assets/index-BczdOph6.js": "2f2eeb5704677c9c48e8a8477382a88348d9887abbb065aa9fcb844dc1dde68b",
+    "dist/assets/index-BJpgLbrZ.css": "18a76c70a490706864c40342230c59f09fbe53e49a1383a4dc64bb2d2e31a60a",
+    "dist/assets/three-CJB_d5X4.js": "74f9722828ebfbc79eb2c676a9a191367d2c32c5942880214bda580ba67bb095",
+    "src/main.ts": "97d6c75f8aaca6d4f5c12113a9f5b3ff27163cb174a18596a661c704d8997fd1",
+    "src/style.css": "d377265598d6e1aac2d3a14e6904f3a04c0859bb833dc9c9f83d56e63e81e524",
+    "src/data/content.ts": "f944a5dda094dbd95cd733c5f1ea9073d0ad996d5d4c8c38cb3c0dfe7028672d",
+    "src/data/legacy.json": "bc21199a25c86c930d25866f22f41576300a3b1fac4950b47bbb979b657d9f22",
+    "src/game/input.ts": "7706d260a7828576077c9a81b5c1b5b2c13d3347e3547e657c4e74f3148814d7",
+    "src/game/progress.ts": "3c8ee11da47efe38f6b7a9016cb10ae25bca8384e85a79bf81ca638033dca855",
+    "src/game/rules.ts": "8fce2aa27144dff1453dd33c3972afd557f8050e71c28f5aa1b15005699df14f",
+    "src/render/models.ts": "46899d0fb3ce2975acb16b1ab7593bfa0a387ac5ddab35ec2b5b8a7f08b83fb6",
+    "src/render/reticle.ts": "710530b6fafbdc348acf0e04fcf2f08208d211f754bbf074f8567743035bcbf2",
+    "src/render/view.ts": "3aef5ae90298620bedf217d371d8b1b1b2fd09a6045ceb7addcacac076b6d573",
+    "src/render/world.ts": "149896d59b3055d997ef822683c69fb3521a04aa226f73cc77e57d8ecb3fddd5",
+    "src/ui/audio.ts": "8df32d7a489b75dc6c231abfea660bee45210df4aefee2690e31f8fde638cf91"
+  }
+}

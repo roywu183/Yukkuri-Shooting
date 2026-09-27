@@ -1,0 +1,285 @@
+{
+  "completed": true,
+  "rendered": [
+    {
+      "name": "standard",
+      "peak": 0.44433340430259705,
+      "rms": 0.03393055270380434,
+      "tail": 0,
+      "duration": 0.45500000000000007
+    },
+    {
+      "name": "chili",
+      "peak": 0.33166345953941345,
+      "rms": 0.026537090989482745,
+      "tail": 0,
+      "duration": 0.49
+    },
+    {
+      "name": "coffee",
+      "peak": 0.27731648087501526,
+      "rms": 0.02847736610753719,
+      "tail": 0,
+      "duration": 0.32999999999999996
+    },
+    {
+      "name": "marble_soda",
+      "peak": 0.2566034197807312,
+      "rms": 0.026712520434607766,
+      "tail": 0,
+      "duration": 0.35
+    },
+    {
+      "name": "budding",
+      "peak": 0.22145472466945648,
+      "rms": 0.024261952489273396,
+      "tail": 0,
+      "duration": 0.37
+    },
+    {
+      "name": "impact",
+      "peak": 0.1592193841934204,
+      "rms": 0.015236642073864552,
+      "tail": 0,
+      "duration": 0.25
+    },
+    {
+      "name": "ricochet",
+      "peak": 0.16707050800323486,
+      "rms": 0.011246581792802185,
+      "tail": 0,
+      "duration": 0.4
+    },
+    {
+      "name": "empty",
+      "peak": 0.08106985688209534,
+      "rms": 0.0065047066208501194,
+      "tail": 0,
+      "duration": 0.185
+    },
+    {
+      "name": "reloadOut",
+      "peak": 0.1459221988916397,
+      "rms": 0.010503299821914308,
+      "tail": 0,
+      "duration": 0.36
+    },
+    {
+      "name": "reloadIn",
+      "peak": 0.1449049711227417,
+      "rms": 0.012077325430593576,
+      "tail": 0,
+      "duration": 0.275
+    },
+    {
+      "name": "reloadReady",
+      "peak": 0.14442172646522522,
+      "rms": 0.011505456947654048,
+      "tail": 0,
+      "duration": 0.305
+    },
+    {
+      "name": "ignite",
+      "peak": 0.06883367896080017,
+      "rms": 0.007205647611386484,
+      "tail": 0,
+      "duration": 0.75
+    },
+    {
+      "name": "explode",
+      "peak": 0.44847339391708374,
+      "rms": 0.03993237797390549,
+      "tail": 0,
+      "duration": 0.8400000000000001
+    },
+    {
+      "name": "grow",
+      "peak": 0.09707934409379959,
+      "rms": 0.014027682591934898,
+      "tail": 0,
+      "duration": 0.8
+    },
+    {
+      "name": "birth",
+      "peak": 0.09531962871551514,
+      "rms": 0.012999065939459018,
+      "tail": 0,
+      "duration": 0.39
+    },
+    {
+      "name": "land",
+      "peak": 0.09453941136598587,
+      "rms": 0.010597214333839197,
+      "tail": 0,
+      "duration": 0.25
+    },
+    {
+      "name": "sleep",
+      "peak": 0.08376502990722656,
+      "rms": 0.011415333507259302,
+      "tail": 0,
+      "duration": 0.7300000000000001
+    },
+    {
+      "name": "stun",
+      "peak": 0.08325102925300598,
+      "rms": 0.010484391075961585,
+      "tail": 0,
+      "duration": 0.55
+    },
+    {
+      "name": "wake",
+      "peak": 0.048805586993694305,
+      "rms": 0.007864972944320793,
+      "tail": 0,
+      "duration": 0.39
+    },
+    {
+      "name": "collect",
+      "peak": 0.09148456901311874,
+      "rms": 0.013154494291901589,
+      "tail": 0,
+      "duration": 0.55
+    },
+    {
+      "name": "warning",
+      "peak": 0.07868767529726028,
+      "rms": 0.010117168560990613,
+      "tail": 0,
+      "duration": 0.7100000000000001
+    },
+    {
+      "name": "scope",
+      "peak": 0.04940608888864517,
+      "rms": 0.004382018704326862,
+      "tail": 0,
+      "duration": 0.22
+    },
+    {
+      "name": "zoom",
+      "peak": 0.05508971959352493,
+      "rms": 0.003323962461741196,
+      "tail": 0,
+      "duration": 0.175
+    },
+    {
+      "name": "ammo",
+      "peak": 0.07678506523370743,
+      "rms": 0.006766645423489808,
+      "tail": 0,
+      "duration": 0.245
+    },
+    {
+      "name": "click",
+      "peak": 0.040802955627441406,
+      "rms": 0.0042854007639898314,
+      "tail": 0,
+      "duration": 0.195
+    },
+    {
+      "name": "success",
+      "peak": 0.07028577476739883,
+      "rms": 0.012434084300648107,
+      "tail": 0,
+      "duration": 1.1099999999999999
+    },
+    {
+      "name": "failure",
+      "peak": 0.07868767529726028,
+      "rms": 0.010117168560990613,
+      "tail": 0,
+      "duration": 0.7100000000000001
+    },
+    {
+      "name": "deploy",
+      "peak": 0.10846095532178879,
+      "rms": 0.010091748436647023,
+      "tail": 0,
+      "duration": 0.37
+    },
+    {
+      "name": "hop",
+      "peak": 0.03901059925556183,
+      "rms": 0.0043698248978042645,
+      "tail": 0,
+      "duration": 0.25
+    },
+    {
+      "name": "wind",
+      "peak": 0.006719592027366161,
+      "rms": 0.0006553958412038321,
+      "tail": 0,
+      "duration": 2.15
+    },
+    {
+      "name": "bird",
+      "peak": 0.017596857622265816,
+      "rms": 0.002516632941981606,
+      "tail": 0,
+      "duration": 0.39
+    },
+    {
+      "name": "machine",
+      "peak": 0.015063358470797539,
+      "rms": 0.0021036191194544317,
+      "tail": 0,
+      "duration": 2.15
+    }
+  ],
+  "cues": [
+    "click",
+    "click",
+    "click",
+    "deploy",
+    "wind",
+    "bird",
+    "hop",
+    "standard",
+    "reloadOut",
+    "hop",
+    "hop",
+    "hop",
+    "hop",
+    "reloadIn",
+    "hop",
+    "wind",
+    "bird",
+    "hop",
+    "hop",
+    "reloadReady",
+    "hop",
+    "scope",
+    "zoom"
+  ],
+  "paused": {
+    "activeVoices": 0,
+    "state": "running",
+    "muted": false,
+    "volume": 0.65
+  },
+  "saved": {
+    "activeVoices": 0,
+    "state": "unavailable",
+    "muted": true,
+    "volume": 0.37
+  },
+  "stress": {
+    "before": {
+      "activeVoices": 10,
+      "state": "running",
+      "muted": false,
+      "volume": 0.37
+    },
+    "after": {
+      "activeVoices": 9,
+      "state": "running",
+      "muted": false,
+      "volume": 0.37
+    }
+  },
+  "finalShot": {
+    "before": 9,
+    "after": 13
+  },
+  "errors": []
+}

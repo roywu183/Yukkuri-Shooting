@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "applicationRequests": [
+    "http://127.0.0.1:4173/",
+    "http://127.0.0.1:4173/assets/index-BczdOph6.js",
+    "http://127.0.0.1:4173/assets/three-CJB_d5X4.js",
+    "http://127.0.0.1:4173/assets/index-BJpgLbrZ.css"
+  ],
+  "environmentInjectedRequests": [
+    "http://local.adguard.org/?ts=1790416917516&type=content-script&dmn=127.0.0.1:4173&url=http%3A%2F%2F127.0.0.1%3A4173%2F&app=chrome.exe&css=3&js=1&rel=1&rji=1&sbe=1",
+    "http://local.adguard.org/?ts=1790416917516&name=%E9%9F%B3%E8%A7%86%E9%A2%91%E9%80%9A%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%99%A8&type=user-script"
+  ],
+  "completed": true
+}

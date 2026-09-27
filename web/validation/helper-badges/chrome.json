@@ -1,0 +1,54 @@
+{
+  "badges": [
+    {
+      "species": "reimu",
+      "position": [
+        0.65,
+        0.48,
+        0.29
+      ]
+    },
+    {
+      "species": "marisa",
+      "position": [
+        0.82,
+        0.49,
+        0.65
+      ]
+    },
+    {
+      "species": "alice",
+      "position": [
+        0.98,
+        0.15,
+        0.19
+      ]
+    },
+    {
+      "species": "patchouli",
+      "position": [
+        0.57,
+        0.3,
+        0.63
+      ]
+    },
+    {
+      "species": "chen",
+      "position": [
+        0.43,
+        0.34,
+        0.48
+      ]
+    },
+    {
+      "species": "youmu",
+      "position": [
+        0.84,
+        0.27,
+        0.31
+      ]
+    }
+  ],
+  "errors": [],
+  "completed": true
+}

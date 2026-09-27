@@ -1,0 +1,427 @@
+{
+  "channel": "chrome",
+  "runs": [
+    {
+      "map": "park",
+      "mode": "campaign",
+      "runId": "2b4691d3-19a6-4e0a-b75c-398d4c725790",
+      "missionId": "park_01",
+      "completed": true,
+      "score": 89.63636363636363,
+      "rank": 4,
+      "grade": "A",
+      "workshop": 88,
+      "community": 0,
+      "hats": {},
+      "stats": {
+        "kills": 9,
+        "shots": 11,
+        "hits": 9,
+        "critical": 9,
+        "streak": 2,
+        "bestStreak": 6,
+        "helperHarm": 0,
+        "collateral": 2
+      },
+      "elapsed": 14.36666666666696,
+      "metrics": {
+        "fps": 144.02304368698975,
+        "geometries": 13,
+        "textures": 5,
+        "calls": 142,
+        "triangles": 34678,
+        "actors": 1,
+        "drops": 9,
+        "resources": 74
+      }
+    },
+    {
+      "map": "park",
+      "mode": "free",
+      "runId": "c3770f63-58c3-4963-aedb-6f58fad1ec51",
+      "missionId": "park_01",
+      "completed": false,
+      "score": 69.44444444444444,
+      "rank": 3,
+      "grade": "B",
+      "workshop": 0,
+      "community": 20,
+      "hats": {
+        "rare_hat": 1
+      },
+      "stats": {
+        "kills": 4,
+        "shots": 4,
+        "hits": 4,
+        "critical": 4,
+        "streak": 4,
+        "bestStreak": 4,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 3.866666666666658,
+      "metrics": {
+        "fps": 144.00576023040932,
+        "geometries": 14,
+        "textures": 5,
+        "calls": 426,
+        "triangles": 167546,
+        "actors": 12,
+        "drops": 3,
+        "resources": 74
+      }
+    },
+    {
+      "map": "city",
+      "mode": "campaign",
+      "runId": "25f8b3f9-ffad-4b41-87e0-849e8f7eb77f",
+      "missionId": "city_01",
+      "completed": true,
+      "score": 87.8235294117647,
+      "rank": 4,
+      "grade": "A",
+      "workshop": 158,
+      "community": 0,
+      "hats": {},
+      "stats": {
+        "kills": 14,
+        "shots": 17,
+        "hits": 14,
+        "critical": 14,
+        "streak": 6,
+        "bestStreak": 6,
+        "helperHarm": 0,
+        "collateral": 3
+      },
+      "elapsed": 21.73333333333338,
+      "metrics": {
+        "fps": 144.00576023040867,
+        "geometries": 13,
+        "textures": 5,
+        "calls": 236,
+        "triangles": 37512,
+        "actors": 1,
+        "drops": 14,
+        "resources": 85
+      }
+    },
+    {
+      "map": "city",
+      "mode": "free",
+      "runId": "f4b0fa75-90d6-4c73-98fa-8dbfcfc74383",
+      "missionId": "city_01",
+      "completed": false,
+      "score": 60.714285714285715,
+      "rank": 3,
+      "grade": "B",
+      "workshop": 0,
+      "community": 20,
+      "hats": {
+        "rare_hat": 1
+      },
+      "stats": {
+        "kills": 4,
+        "shots": 4,
+        "hits": 4,
+        "critical": 4,
+        "streak": 4,
+        "bestStreak": 4,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 3.849999999999991,
+      "metrics": {
+        "fps": 143.98848092152596,
+        "geometries": 14,
+        "textures": 5,
+        "calls": 528,
+        "triangles": 166322,
+        "actors": 12,
+        "drops": 3,
+        "resources": 85
+      }
+    },
+    {
+      "map": "residential",
+      "mode": "campaign",
+      "runId": "77f98244-2be2-4b56-bcba-4ea687d14bd6",
+      "missionId": "residential_01",
+      "completed": true,
+      "score": 100,
+      "rank": 5,
+      "grade": "S",
+      "workshop": 220,
+      "community": 0,
+      "hats": {},
+      "stats": {
+        "kills": 15,
+        "shots": 15,
+        "hits": 15,
+        "critical": 15,
+        "streak": 15,
+        "bestStreak": 15,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 17.80000000000027,
+      "metrics": {
+        "fps": 144.00576023040887,
+        "geometries": 14,
+        "textures": 5,
+        "calls": 277,
+        "triangles": 75990,
+        "actors": 3,
+        "drops": 15,
+        "resources": 94
+      }
+    },
+    {
+      "map": "residential",
+      "mode": "free",
+      "runId": "67128444-ab88-414e-8865-f6a984668bf0",
+      "missionId": "residential_01",
+      "completed": false,
+      "score": 59.666666666666664,
+      "rank": 2,
+      "grade": "C",
+      "workshop": 0,
+      "community": 20,
+      "hats": {
+        "rare_hat": 1
+      },
+      "stats": {
+        "kills": 4,
+        "shots": 4,
+        "hits": 4,
+        "critical": 4,
+        "streak": 4,
+        "bestStreak": 4,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 3.8333333333333246,
+      "metrics": {
+        "fps": 143.98848092152735,
+        "geometries": 14,
+        "textures": 5,
+        "calls": 473,
+        "triangles": 176954,
+        "actors": 12,
+        "drops": 3,
+        "resources": 94
+      }
+    },
+    {
+      "map": "shopping_street",
+      "mode": "campaign",
+      "runId": "c49086f9-560e-42e6-8c59-3b7510839b6d",
+      "missionId": "shopping_01",
+      "completed": true,
+      "score": 100,
+      "rank": 5,
+      "grade": "S",
+      "workshop": 260,
+      "community": 0,
+      "hats": {},
+      "stats": {
+        "kills": 16,
+        "shots": 16,
+        "hits": 16,
+        "critical": 16,
+        "streak": 16,
+        "bestStreak": 16,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 20.8000000000001,
+      "metrics": {
+        "fps": 144.00576023040884,
+        "geometries": 14,
+        "textures": 9,
+        "calls": 313,
+        "triangles": 87584,
+        "actors": 1,
+        "drops": 16,
+        "resources": 102
+      }
+    },
+    {
+      "map": "shopping_street",
+      "mode": "free",
+      "runId": "ed50a338-a95f-4c10-a413-8af84ad0d324",
+      "missionId": "shopping_01",
+      "completed": false,
+      "score": 58.75,
+      "rank": 2,
+      "grade": "C",
+      "workshop": 0,
+      "community": 20,
+      "hats": {
+        "rare_hat": 1
+      },
+      "stats": {
+        "kills": 4,
+        "shots": 4,
+        "hits": 4,
+        "critical": 4,
+        "streak": 4,
+        "bestStreak": 4,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 3.8333333333333246,
+      "metrics": {
+        "fps": 144.0057602304114,
+        "geometries": 14,
+        "textures": 9,
+        "calls": 495,
+        "triangles": 174586,
+        "actors": 12,
+        "drops": 3,
+        "resources": 102
+      }
+    },
+    {
+      "map": "factory",
+      "mode": "campaign",
+      "runId": "d9a6ef4b-f7fe-4f9b-b0cf-e0a5111754d4",
+      "missionId": "factory_01",
+      "completed": true,
+      "score": 92.3157894736842,
+      "rank": 5,
+      "grade": "S",
+      "workshop": 300,
+      "community": 0,
+      "hats": {},
+      "stats": {
+        "kills": 17,
+        "shots": 19,
+        "hits": 17,
+        "critical": 17,
+        "streak": 10,
+        "bestStreak": 10,
+        "helperHarm": 0,
+        "collateral": 2
+      },
+      "elapsed": 23.56666666666661,
+      "metrics": {
+        "fps": 143.9884809215274,
+        "geometries": 13,
+        "textures": 5,
+        "calls": 247,
+        "triangles": 75608,
+        "actors": 1,
+        "drops": 17,
+        "resources": 111
+      }
+    },
+    {
+      "map": "factory",
+      "mode": "free",
+      "runId": "5df0f7c6-0127-44c4-af59-07872dd3ae33",
+      "missionId": "factory_01",
+      "completed": false,
+      "score": 57.94117647058824,
+      "rank": 2,
+      "grade": "C",
+      "workshop": 0,
+      "community": 20,
+      "hats": {
+        "rare_hat": 1
+      },
+      "stats": {
+        "kills": 4,
+        "shots": 4,
+        "hits": 4,
+        "critical": 4,
+        "streak": 4,
+        "bestStreak": 4,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 3.849999999999991,
+      "metrics": {
+        "fps": 143.98848092152738,
+        "geometries": 14,
+        "textures": 5,
+        "calls": 447,
+        "triangles": 165278,
+        "actors": 12,
+        "drops": 3,
+        "resources": 111
+      }
+    },
+    {
+      "map": "rural",
+      "mode": "campaign",
+      "runId": "839e76cb-8c9c-4ba2-a973-0d3cfe346a77",
+      "missionId": "rural_01",
+      "completed": true,
+      "score": 100,
+      "rank": 5,
+      "grade": "S",
+      "workshop": 340,
+      "community": 0,
+      "hats": {},
+      "stats": {
+        "kills": 18,
+        "shots": 18,
+        "hits": 18,
+        "critical": 18,
+        "streak": 18,
+        "bestStreak": 18,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 22.63333333333333,
+      "metrics": {
+        "fps": 144.00576023040625,
+        "geometries": 13,
+        "textures": 5,
+        "calls": 236,
+        "triangles": 76232,
+        "actors": 1,
+        "drops": 18,
+        "resources": 117
+      }
+    },
+    {
+      "map": "rural",
+      "mode": "free",
+      "runId": "b20472d4-d041-42dd-be66-97d03ae09615",
+      "missionId": "rural_01",
+      "completed": false,
+      "score": 57.22222222222222,
+      "rank": 2,
+      "grade": "C",
+      "workshop": 0,
+      "community": 20,
+      "hats": {
+        "rare_hat": 1
+      },
+      "stats": {
+        "kills": 4,
+        "shots": 4,
+        "hits": 4,
+        "critical": 4,
+        "streak": 4,
+        "bestStreak": 4,
+        "helperHarm": 0,
+        "collateral": 0
+      },
+      "elapsed": 3.849999999999991,
+      "metrics": {
+        "fps": 144.0057602304113,
+        "geometries": 14,
+        "textures": 5,
+        "calls": 446,
+        "triangles": 167954,
+        "actors": 12,
+        "drops": 3,
+        "resources": 117
+      }
+    }
+  ],
+  "errors": [],
+  "completed": true
+}

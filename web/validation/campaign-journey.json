@@ -1,0 +1,612 @@
+{
+  "runs": [
+    {
+      "mission": "park_01",
+      "result": {
+        "runId": "4168a47c-f266-4ad9-ab6f-50cbb5a8221d",
+        "missionId": "park_01",
+        "mode": "campaign",
+        "completed": true,
+        "score": 94.5,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 100,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 9,
+          "shots": 10,
+          "hits": 9,
+          "critical": 9,
+          "streak": 1,
+          "bestStreak": 8,
+          "helperHarm": 0,
+          "collateral": 1
+        },
+        "elapsed": 11.533333333333486
+      },
+      "workshop": 100,
+      "community": 0
+    },
+    {
+      "mission": "park_02",
+      "result": {
+        "runId": "7532eb2b-28d5-4057-b550-3892211bc8f3",
+        "missionId": "park_02",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 160,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 16,
+          "shots": 16,
+          "hits": 16,
+          "critical": 16,
+          "streak": 16,
+          "bestStreak": 16,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 19.066666666666865
+      },
+      "workshop": 260,
+      "community": 0
+    },
+    {
+      "mission": "park_03",
+      "result": {
+        "runId": "de93963f-cde5-4530-bf1a-f7a818216339",
+        "missionId": "park_03",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 180,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 16,
+          "shots": 16,
+          "hits": 16,
+          "critical": 16,
+          "streak": 16,
+          "bestStreak": 16,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 19.066666666666865
+      },
+      "workshop": 440,
+      "community": 0
+    },
+    {
+      "mission": "city_01",
+      "result": {
+        "runId": "1b1adfb3-5535-4c7d-b262-701e0d00af07",
+        "missionId": "city_01",
+        "mode": "campaign",
+        "completed": true,
+        "score": 95.66666666666667,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 180,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 14,
+          "shots": 15,
+          "hits": 14,
+          "critical": 14,
+          "streak": 5,
+          "bestStreak": 9,
+          "helperHarm": 0,
+          "collateral": 1
+        },
+        "elapsed": 21.11666666666675
+      },
+      "workshop": 620,
+      "community": 0
+    },
+    {
+      "mission": "city_02",
+      "result": {
+        "runId": "a8cdedd4-9449-4fa3-8284-09793685c579",
+        "missionId": "city_02",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 200,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 18,
+          "shots": 18,
+          "hits": 18,
+          "critical": 18,
+          "streak": 18,
+          "bestStreak": 18,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 20.750000000000103
+      },
+      "workshop": 820,
+      "community": 0
+    },
+    {
+      "mission": "city_03",
+      "result": {
+        "runId": "6c211f59-4980-44c4-bf26-9c58b5c7f1e7",
+        "missionId": "city_03",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 220,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 18,
+          "shots": 18,
+          "hits": 18,
+          "critical": 18,
+          "streak": 18,
+          "bestStreak": 18,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 20.733333333333437
+      },
+      "workshop": 1040,
+      "community": 0
+    },
+    {
+      "mission": "residential_01",
+      "result": {
+        "runId": "6c3aedbc-c5be-4aae-ab51-dd2f98d56af2",
+        "missionId": "residential_01",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 220,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 15,
+          "shots": 15,
+          "hits": 15,
+          "critical": 15,
+          "streak": 15,
+          "bestStreak": 15,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 16.116666666667033
+      },
+      "workshop": 1260,
+      "community": 0
+    },
+    {
+      "mission": "residential_02",
+      "result": {
+        "runId": "4910986b-6a03-4b0d-8574-0ca79042cf07",
+        "missionId": "residential_02",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 240,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 20,
+          "shots": 20,
+          "hits": 20,
+          "critical": 19,
+          "streak": 20,
+          "bestStreak": 20,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 22.40000000000001
+      },
+      "workshop": 1500,
+      "community": 0
+    },
+    {
+      "mission": "residential_03",
+      "result": {
+        "runId": "65703430-dd0e-4f9c-abdd-6d3e4c74e498",
+        "missionId": "residential_03",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 260,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 20,
+          "shots": 20,
+          "hits": 20,
+          "critical": 19,
+          "streak": 20,
+          "bestStreak": 20,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 22.40000000000001
+      },
+      "workshop": 1760,
+      "community": 0
+    },
+    {
+      "mission": "shopping_01",
+      "result": {
+        "runId": "31d94129-5ddc-4a78-a863-35ec02a7b01d",
+        "missionId": "shopping_01",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 260,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 16,
+          "shots": 16,
+          "hits": 16,
+          "critical": 16,
+          "streak": 16,
+          "bestStreak": 16,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 19.0500000000002
+      },
+      "workshop": 2020,
+      "community": 0
+    },
+    {
+      "mission": "shopping_02",
+      "result": {
+        "runId": "02235fca-3c4a-42ee-9bc0-512254c1fd87",
+        "missionId": "shopping_02",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 280,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 22,
+          "shots": 22,
+          "hits": 22,
+          "critical": 21,
+          "streak": 22,
+          "bestStreak": 22,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 27.833333333333034
+      },
+      "workshop": 2300,
+      "community": 0
+    },
+    {
+      "mission": "shopping_03",
+      "result": {
+        "runId": "a8ea3766-9b4c-4b5c-8124-b56d8ed3b55a",
+        "missionId": "shopping_03",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 300,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 22,
+          "shots": 22,
+          "hits": 22,
+          "critical": 21,
+          "streak": 22,
+          "bestStreak": 22,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 27.799999999999702
+      },
+      "workshop": 2600,
+      "community": 0
+    },
+    {
+      "mission": "factory_01",
+      "result": {
+        "runId": "82cdf656-3224-4e23-a2dc-9dde2728da32",
+        "missionId": "factory_01",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 300,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 17,
+          "shots": 17,
+          "hits": 17,
+          "critical": 17,
+          "streak": 17,
+          "bestStreak": 17,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 19.850000000000154
+      },
+      "workshop": 2900,
+      "community": 0
+    },
+    {
+      "mission": "factory_02",
+      "result": {
+        "runId": "53e0050e-c26a-4d1b-ab3e-c861d677df56",
+        "missionId": "factory_02",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 320,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 24,
+          "shots": 24,
+          "hits": 24,
+          "critical": 21,
+          "streak": 24,
+          "bestStreak": 24,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 29.433333333332943
+      },
+      "workshop": 3220,
+      "community": 0
+    },
+    {
+      "mission": "factory_03",
+      "result": {
+        "runId": "a2537d7d-5b09-4068-aebf-7ac3501ee4e7",
+        "missionId": "factory_03",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 340,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 24,
+          "shots": 24,
+          "hits": 24,
+          "critical": 22,
+          "streak": 24,
+          "bestStreak": 24,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 29.883333333332917
+      },
+      "workshop": 3560,
+      "community": 0
+    },
+    {
+      "mission": "rural_01",
+      "result": {
+        "runId": "2ed547be-a92e-443b-a7b8-fe4455ca7882",
+        "missionId": "rural_01",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 340,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 18,
+          "shots": 18,
+          "hits": 18,
+          "critical": 18,
+          "streak": 18,
+          "bestStreak": 18,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 20.733333333333437
+      },
+      "workshop": 3900,
+      "community": 0
+    },
+    {
+      "mission": "rural_02",
+      "result": {
+        "runId": "15b8e1ea-3ed0-473b-ae75-551226c3472a",
+        "missionId": "rural_02",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 360,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 26,
+          "shots": 26,
+          "hits": 26,
+          "critical": 22,
+          "streak": 26,
+          "bestStreak": 26,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 31.616666666666152
+      },
+      "workshop": 4260,
+      "community": 0
+    },
+    {
+      "mission": "rural_03",
+      "result": {
+        "runId": "b675b5fe-8598-44da-b7f0-002bd9ac6fb5",
+        "missionId": "rural_03",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 380,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 26,
+          "shots": 26,
+          "hits": 26,
+          "critical": 22,
+          "streak": 26,
+          "bestStreak": 26,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 31.533333333332823
+      },
+      "workshop": 4640,
+      "community": 0
+    },
+    {
+      "mission": "joint_extermination",
+      "result": {
+        "runId": "cf69468b-45a3-4b45-ab79-974801a0a6d0",
+        "missionId": "joint_extermination",
+        "mode": "campaign",
+        "completed": true,
+        "score": 100,
+        "rank": 5,
+        "grade": "S",
+        "workshop": 800,
+        "community": 0,
+        "hats": {},
+        "stats": {
+          "kills": 42,
+          "shots": 42,
+          "hits": 42,
+          "critical": 34,
+          "streak": 42,
+          "bestStreak": 42,
+          "helperHarm": 0,
+          "collateral": 0
+        },
+        "elapsed": 51.316666666665036
+      },
+      "workshop": 6140,
+      "community": 0
+    }
+  ],
+  "errors": [],
+  "restored": {
+    "version": 1,
+    "workshop": 6140,
+    "community": 0,
+    "completed": [
+      "park_01",
+      "park_02",
+      "park_03",
+      "city_01",
+      "city_02",
+      "city_03",
+      "residential_01",
+      "residential_02",
+      "residential_03",
+      "shopping_01",
+      "shopping_02",
+      "shopping_03",
+      "factory_01",
+      "factory_02",
+      "factory_03",
+      "rural_01",
+      "rural_02",
+      "rural_03",
+      "joint_extermination"
+    ],
+    "ratings": {
+      "park_01": 5,
+      "park_02": 5,
+      "park_03": 5,
+      "city_01": 5,
+      "city_02": 5,
+      "city_03": 5,
+      "residential_01": 5,
+      "residential_02": 5,
+      "residential_03": 5,
+      "shopping_01": 5,
+      "shopping_02": 5,
+      "shopping_03": 5,
+      "factory_01": 5,
+      "factory_02": 5,
+      "factory_03": 5,
+      "rural_01": 5,
+      "rural_02": 5,
+      "rural_03": 5,
+      "joint_extermination": 5
+    },
+    "upgrades": {},
+    "helpers": {},
+    "loadouts": {},
+    "hats": {},
+    "settled": [
+      "4168a47c-f266-4ad9-ab6f-50cbb5a8221d",
+      "7532eb2b-28d5-4057-b550-3892211bc8f3",
+      "de93963f-cde5-4530-bf1a-f7a818216339",
+      "1b1adfb3-5535-4c7d-b262-701e0d00af07",
+      "a8cdedd4-9449-4fa3-8284-09793685c579",
+      "6c211f59-4980-44c4-bf26-9c58b5c7f1e7",
+      "6c3aedbc-c5be-4aae-ab51-dd2f98d56af2",
+      "4910986b-6a03-4b0d-8574-0ca79042cf07",
+      "65703430-dd0e-4f9c-abdd-6d3e4c74e498",
+      "31d94129-5ddc-4a78-a863-35ec02a7b01d",
+      "02235fca-3c4a-42ee-9bc0-512254c1fd87",
+      "a8ea3766-9b4c-4b5c-8124-b56d8ed3b55a",
+      "82cdf656-3224-4e23-a2dc-9dde2728da32",
+      "53e0050e-c26a-4d1b-ab3e-c861d677df56",
+      "a2537d7d-5b09-4068-aebf-7ac3501ee4e7",
+      "2ed547be-a92e-443b-a7b8-fe4455ca7882",
+      "15b8e1ea-3ed0-473b-ae75-551226c3472a",
+      "b675b5fe-8598-44da-b7f0-002bd9ac6fb5",
+      "4e516b79-e4c6-42bb-821d-f5e089251035",
+      "cf69468b-45a3-4b45-ab79-974801a0a6d0"
+    ]
+  },
+  "resumedFromBrowserCheckpoint": true,
+  "completed": true
+}
