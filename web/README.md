@@ -84,4 +84,4 @@ npm.cmd run test:soak
 - `src/render`：Three.js 模型、六區場景、射線命中與距離標尺。
 - `src/main.ts`、`src/ui`：繁體中文介面、操作協調及 Web Audio 音效。
 
-`dist/` 可直接部署到任意靜態網站伺服器，資源路徑使用相對位置。禁止以 `file://` 直接雙擊 HTML；請透過 HTTP(S) 開啟。未公開部署。無外部模型、貼圖、字型或 API 依賴；Node.js 僅用於開發與本機伺服器。
+`dist/` 可直接部署到任意靜態網站伺服器，資源路徑使用相對位置。禁止以 `file://` 直接雙擊 HTML；請透過 HTTP(S) 開啟。`main` 分支推送後，GitHub Actions 會重新建置並將 `web/dist/` 發布至 GitHub Pages。無外部模型、貼圖、字型或 API 依賴；Node.js 僅用於開發、建置與本機伺服器。

@@ -1,0 +1,46 @@
+name: 部署瀏覽器遊戲
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 取得原始碼
+        uses: actions/checkout@v4
+      - name: 設定 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: 安裝相依套件
+        run: npm ci --no-audit --no-fund
+        working-directory: web
+      - name: 建置網頁
+        run: npm run build
+        working-directory: web
+      - name: 設定 GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: 上傳網頁產物
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: web/dist
+      - name: 發布至 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
