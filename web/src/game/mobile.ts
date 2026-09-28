@@ -1,13 +1,18 @@
 export type PlayOrientation = "portrait" | "landscape";
+declare const __MOBILE_EDITION__: boolean;
+const mobileEdition = typeof __MOBILE_EDITION__ !== "undefined" && __MOBILE_EDITION__;
 
 export function isMobileDevice(
   agent = navigator.userAgent,
   touchPoints = navigator.maxTouchPoints,
   coarse = matchMedia("(pointer: coarse)").matches,
+  edition = mobileEdition,
 ) {
   return (
+    edition ||
     /Android|iPhone|iPad|iPod|Mobile/i.test(agent) ||
-    (touchPoints > 1 && (/Macintosh/i.test(agent) || coarse))
+    (touchPoints > 0 && coarse) ||
+    (touchPoints > 1 && /Macintosh/i.test(agent))
   );
 }
 

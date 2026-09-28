@@ -31,6 +31,9 @@ if ($Mode -eq 'Create') {
     if ($files.Count -ne 4 -or @($files | Where-Object { $_.Extension -notin '.html', '.css', '.js' }).Count) {
         throw '網頁產物清單與預期不符，停止發布。'
     }
+    if ((Get-Content -LiteralPath (Join-Path $distDirectory 'index.html') -Raw) -notmatch 'data-mobile-edition="true"') {
+        throw '請先執行 npm.cmd run build:mobile，避免將一般版發布至手機網址。'
+    }
     function Publish-File([string]$Path, [byte[]]$Bytes) {
         $payload = @{ message = "發布手機版：$Path"; content = [Convert]::ToBase64String($Bytes); branch = 'main' }
         try {

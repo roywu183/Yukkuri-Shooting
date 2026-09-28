@@ -2,6 +2,8 @@
   {
     "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
     "orientation": "portrait",
+    "label": "portrait",
+    "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true
@@ -9,6 +11,44 @@
   {
     "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
     "orientation": "landscape",
+    "label": "landscape",
+    "choiceInFirstScreen": true,
+    "status": 200,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "orientation": "portrait",
+    "label": "android-portrait",
+    "choiceInFirstScreen": true,
+    "status": 200,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "orientation": "landscape",
+    "label": "android-landscape",
+    "choiceInFirstScreen": true,
+    "status": 200,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "orientation": "portrait",
+    "label": "desktop-agent-touch",
+    "choiceInFirstScreen": true,
+    "status": 200,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "orientation": "portrait",
+    "label": "desktop-agent-no-touch",
+    "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true

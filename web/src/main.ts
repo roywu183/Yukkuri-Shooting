@@ -268,7 +268,7 @@ export class App {
       this.ui.innerHTML =
         this.header() +
         `<section class="hero"><div class="eyebrow"><span class="status-dot"></span> AOBA DISTRICT · OBSERVATION POST 01</div><h1>每一次瞄準，<br>都為了明天的<span>平靜。</span></h1><p class="hero-sub">加工所：制高點</p><p class="intro">登上觀測台，守望熟悉的街區。<br>觀察路徑、辨識目標，完成你的下一份勤務。</p><div class="hero-actions"><button class="primary" data-action="campaign">前往任務板 <span>↗</span></button><button class="text-button" data-action="gallery">認識六種油庫里 <span>→</span></button></div><div class="language-switch" role="group" aria-label="語言">${localeChoices.map(({ id, label }) => `<button type="button" data-action="locale" data-id="${id}" aria-pressed="${this.localizer.locale === id}" class="${this.localizer.locale === id ? "selected" : ""}">${label}</button>`).join("")}</div><div class="hero-stats"><div><b>06</b><span>巡守地區</span></div><div><b>18</b><span>驅逐任務</span></div><div><b>05</b><span>戰術彈種</span></div></div></section><aside class="post-label"><span>01 / 青葉公園</span><b>管理所屋頂</b><small>固定觀測台 · 第一人稱狙擊</small></aside><footer><span>勤務須知：綠色圓形徽章代表社區協力者，請勿誤傷。</span><span>THREE.JS EDITION / 01</span></footer>`;
-      if (this.mobile) this.ui.querySelector(".hero-actions")!.insertAdjacentHTML("beforebegin",
+      if (this.mobile) this.ui.querySelector(".hero")!.insertAdjacentHTML("afterbegin",
         `<div class="orientation-choice" role="group" aria-label="手機遊戲方向"><b>手機遊戲方向</b><div><button data-action="orientation" data-id="portrait" aria-pressed="${this.orientation === "portrait"}">直向遊戲</button><button data-action="orientation" data-id="landscape" aria-pressed="${this.orientation === "landscape"}">橫向遊戲</button></div><small>拖曳畫面瞄準，按鈕射擊；進入勤務時請轉至所選方向。</small></div>`);
       return;
     }
