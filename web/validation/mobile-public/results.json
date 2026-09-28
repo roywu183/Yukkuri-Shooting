@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "orientation": "portrait",
+    "status": 200,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "orientation": "landscape",
+    "status": 200,
+    "errors": [],
+    "passed": true
+  }
+]
