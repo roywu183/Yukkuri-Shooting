@@ -9,6 +9,7 @@
     "preview": "vite preview --configLoader native --host 127.0.0.1",
     "test": "vitest run --configLoader native",
     "test:browser": "node tools/browser-test.mjs",
+    "test:mobile": "node tools/mobile-browser.mjs",
     "test:soak": "node tools/soak.mjs",
     "format": "prettier --write src tests tools vite.config.mjs"
   },

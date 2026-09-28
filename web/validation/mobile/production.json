@@ -1,0 +1,12 @@
+[
+  {
+    "orientation": "portrait",
+    "errors": [],
+    "productionPassed": true
+  },
+  {
+    "orientation": "landscape",
+    "errors": [],
+    "productionPassed": true
+  }
+]

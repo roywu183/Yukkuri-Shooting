@@ -17,6 +17,7 @@ import {
   completeSet,
 } from "./game/progress";
 import { Input } from "./game/input";
+import { isMobileDevice, currentOrientation, requestOrientation, type PlayOrientation } from "./game/mobile";
 import { GameView } from "./render/view";
 import { GameAudio } from "./ui/audio";
 import { DialogueView } from "./ui/dialogue";
@@ -70,6 +71,10 @@ export class App {
   private soundedResult?: string;
   private soundControls!: HTMLDivElement;
   private preview?: Session;
+  readonly mobile = isMobileDevice();
+  orientation: PlayOrientation = currentOrientation();
+  private touchControls!: HTMLDivElement;
+  private rotationPrompt!: HTMLDivElement;
   constructor() {
     let storage: Storage;
     try {
@@ -85,12 +90,27 @@ export class App {
       } as unknown as Storage;
     }
     this.store = new ProgressStore(storage);
+    try {
+      const savedOrientation = storage.getItem("highground.web.orientation");
+      if (savedOrientation === "portrait" || savedOrientation === "landscape")
+        this.orientation = savedOrientation;
+    } catch { /* Storage may be disabled in private browsing. */ }
     this.root.innerHTML =
       '<canvas id="world" aria-label="三維遊戲場景"></canvas><div id="vignette"></div><main id="ui"></main><div id="hud"></div><div id="notice" role="status"></div>';
     this.canvas = document.querySelector("#world")!;
     this.ui = document.querySelector("#ui")!;
     this.hud = document.querySelector("#hud")!;
     this.notice = document.querySelector("#notice")!;
+    this.root.classList.toggle("mobile", this.mobile);
+    this.root.dataset.orientation = this.orientation;
+    this.touchControls = document.createElement("div");
+    this.touchControls.className = "touch-controls";
+    this.touchControls.hidden = true;
+    this.touchControls.innerHTML = `<div class="touch-toolbar"><button data-touch="pause">暫停</button><button data-touch="scope" aria-pressed="false">瞄準鏡</button><button data-touch="zoom-out" aria-label="降低倍率">倍率 −</button><button data-touch="zoom-in" aria-label="提高倍率">倍率 ＋</button></div><div class="touch-ammo" role="group" aria-label="選擇彈種">${ammoOrder.map((id, i) => `<button data-touch="ammo" data-index="${i}">${ammoNames[id]}</button>`).join("")}</div><div class="touch-bottom"><span class="touch-hint">拖曳畫面瞄準</span><div class="touch-secondary"><button data-touch="collect">回收頭飾</button><button data-touch="reload">換彈</button></div><button class="touch-fire" data-touch="fire">射擊</button></div>`;
+    this.rotationPrompt = document.createElement("div");
+    this.rotationPrompt.className = "rotation-prompt";
+    this.rotationPrompt.hidden = true;
+    this.root.append(this.touchControls, this.rotationPrompt);
     this.soundControls = document.createElement("div");
     this.soundControls.className = "sound-controls";
     this.soundControls.innerHTML = `<button type="button" aria-label="切換靜音"></button><label>音效 <input aria-label="音效音量" type="range" min="0" max="100" value="${Math.round(this.audio.volume * 100)}"></label>`;
@@ -116,7 +136,7 @@ export class App {
     };
     this.root.append(this.soundControls);
     this.dialogue = new DialogueView(this.root);
-    this.localizer = new PageLocalizer([this.ui, this.hud, this.notice, this.soundControls, this.dialogue.root]);
+    this.localizer = new PageLocalizer([this.ui, this.hud, this.notice, this.soundControls, this.dialogue.root, this.touchControls, this.rotationPrompt]);
     document.documentElement.lang = this.localizer.locale;
     document.title = translateText("加工所：制高點", this.localizer.locale);
     try {
@@ -149,6 +169,7 @@ export class App {
           if (this.session.ammo !== id) this.audio.play("ammo");
           this.session.ammo = id;
         } else this.audio.play("warning");
+        this.updateHud();
       },
       collect: () => {
         if (!this.session?.collect()) this.audio.play("empty");
@@ -157,7 +178,8 @@ export class App {
       },
       pause: () => this.pause(),
       aim: (x, y) => this.view.aim(x, y),
-    });
+    }, this.mobile);
+    this.input.bindTouchControls(this.touchControls);
     this.ui.addEventListener("click", (e) => {
       const b = (e.target as HTMLElement).closest<HTMLElement>("[data-action]");
       if (b && !b.hasAttribute("disabled")) {
@@ -166,7 +188,14 @@ export class App {
         this.audio.play("click");
       }
     });
-    window.addEventListener("resize", () => this.view.resize());
+    window.addEventListener("resize", () => {
+      this.view.resize();
+      this.checkOrientation();
+    });
+    this.rotationPrompt.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("button"))
+        this.setOrientation(currentOrientation());
+    });
     this.canvas.addEventListener("webglcontextlost", (e) => {
       e.preventDefault();
       this.pause();
@@ -184,6 +213,22 @@ export class App {
     this.notice.textContent = text;
     this.notice.classList.add("show");
     setTimeout(() => this.notice.classList.remove("show"), 6000);
+  }
+  private setOrientation(orientation: PlayOrientation) {
+    this.orientation = orientation;
+    try { localStorage.setItem("highground.web.orientation", orientation); } catch { /* Still usable without storage. */ }
+    this.root.dataset.orientation = orientation;
+    this.checkOrientation();
+    if (this.screen === "home") this.renderMenu();
+  }
+  private checkOrientation() {
+    const mismatch = this.mobile && this.screen === "play" &&
+      !this.session?.finished && currentOrientation() !== this.orientation;
+    this.rotationPrompt.hidden = !mismatch;
+    if (mismatch) {
+      this.pause();
+      this.rotationPrompt.innerHTML = `<section><h2>請將手機轉為${this.orientation === "portrait" ? "直向" : "橫向"}</h2><p>轉動手機後，點「繼續勤務」即可遊玩。</p><button>改用目前方向</button></section>`;
+    }
   }
   private homePreview() {
     this.view.setMap("park");
@@ -214,6 +259,8 @@ export class App {
       )}</nav><div class="balances"><span>加工所 <b>${this.store.value.workshop}</b></span><span>社區 <b>${this.store.value.community}</b></span></div></header>`;
   }
   renderMenu() {
+    this.touchControls.hidden = true;
+    this.rotationPrompt.hidden = true;
     this.root.classList.toggle("playing", this.screen === "play");
     this.root.classList.toggle("gallery", this.screen === "gallery");
     this.hud.innerHTML = "";
@@ -221,6 +268,8 @@ export class App {
       this.ui.innerHTML =
         this.header() +
         `<section class="hero"><div class="eyebrow"><span class="status-dot"></span> AOBA DISTRICT · OBSERVATION POST 01</div><h1>每一次瞄準，<br>都為了明天的<span>平靜。</span></h1><p class="hero-sub">加工所：制高點</p><p class="intro">登上觀測台，守望熟悉的街區。<br>觀察路徑、辨識目標，完成你的下一份勤務。</p><div class="hero-actions"><button class="primary" data-action="campaign">前往任務板 <span>↗</span></button><button class="text-button" data-action="gallery">認識六種油庫里 <span>→</span></button></div><div class="language-switch" role="group" aria-label="語言">${localeChoices.map(({ id, label }) => `<button type="button" data-action="locale" data-id="${id}" aria-pressed="${this.localizer.locale === id}" class="${this.localizer.locale === id ? "selected" : ""}">${label}</button>`).join("")}</div><div class="hero-stats"><div><b>06</b><span>巡守地區</span></div><div><b>18</b><span>驅逐任務</span></div><div><b>05</b><span>戰術彈種</span></div></div></section><aside class="post-label"><span>01 / 青葉公園</span><b>管理所屋頂</b><small>固定觀測台 · 第一人稱狙擊</small></aside><footer><span>勤務須知：綠色圓形徽章代表社區協力者，請勿誤傷。</span><span>THREE.JS EDITION / 01</span></footer>`;
+      if (this.mobile) this.ui.querySelector(".hero-actions")!.insertAdjacentHTML("beforebegin",
+        `<div class="orientation-choice" role="group" aria-label="手機遊戲方向"><b>手機遊戲方向</b><div><button data-action="orientation" data-id="portrait" aria-pressed="${this.orientation === "portrait"}">直向遊戲</button><button data-action="orientation" data-id="landscape" aria-pressed="${this.orientation === "landscape"}">橫向遊戲</button></div><small>拖曳畫面瞄準，按鈕射擊；進入勤務時請轉至所選方向。</small></div>`);
       return;
     }
     if (this.screen === "gallery") {
@@ -265,11 +314,16 @@ export class App {
         .join(
           "",
         )}</div></section><aside class="collection"><span class="section-label">頭飾收藏</span><h3>帶回街區的紀念。</h3><p>手動回收保留收藏；回收專長協力者拾取的頭飾自動折算點數。</p>${catalog.headwear.map((h) => `<div class="hat-row"><b>${h.rarity === "rare" ? "✦" : "◇"} ${h.display_name}</b><span>${p.hats[h.id] ?? 0} 件</span><button data-action="exchange" data-id="${h.id}" ${p.hats[h.id] ? "" : "disabled"}>兌換 ${h.community_value} 點</button></div>`).join("")}<p class="set-note">${completeSet(p) ? "✓ 收藏套裝生效：處置點數 ×1.5" : "集齊普通與稀有頭飾，處置點數 ×1.5。"}</p></aside></div>`;
+    if (this.mobile) body = body.replaceAll("按 E 回收頭飾", "點「回收頭飾」按鈕").replaceAll("數字鍵 1–5", "彈種按鈕");
     this.ui.innerHTML =
       this.header() +
       `<section class="workspace"><div class="workspace-title"><div><div class="eyebrow">AOBA FIELD OFFICE / 勤務管理</div><h1>${title}</h1></div><span class="save-hint">進度儲存在此瀏覽器</span></div>${body}</section>`;
   }
   async action(action: string, id?: string) {
+    if (action === "orientation" && this.mobile && (id === "portrait" || id === "landscape")) {
+      this.setOrientation(id);
+      return;
+    }
     if (action === "locale" && localeChoices.some((choice) => choice.id === id)) {
       this.localizer.set(id as Locale);
       this.renderMenu();
@@ -395,6 +449,12 @@ export class App {
     this.ui.innerHTML =
       this.header() +
       `<div class="modal-backdrop"><section class="brief modal"><div class="eyebrow">RADIO DISPATCH / 無線電簡報</div><h2>${mode === "free" ? "自由巡守 · " + catalog.maps.find((x) => x.id === m.map)?.display_name : m.display_name}</h2><p class="brief-story">${(m.story_lines ?? []).map(escape).join("<br>")}</p><div class="brief-facts"><div><small>目標</small><b>${mode === "free" ? "持續出現" : `${m.max_enemy_count} 隻`}</b></div><div><small>時間</small><b>${mode === "free" ? "無時間限制" : `${m.time_limit_seconds / 60} 分鐘`}</b></div><div><small>安全規範</small><b>辨識綠色徽章</b></div></div><p>${mode === "free" ? "按 E 回收頭飾。普通彈可免費無限裝填；每種特殊彈每場限 3 發，擴充彈匣後限 5 發。" : `全數處置才推進戰役。${m.max_collateral_damage >= 0 ? `附帶損害不得超過 ${m.max_collateral_damage} 次。` : ""}${m.minimum_accuracy ? `命中率至少 ${Math.round(m.minimum_accuracy * 100)}%。` : ""}`}</p><div class="controls"><span><kbd>滑鼠</kbd> 轉向</span><span><kbd>左鍵</kbd> 射擊</span><span><kbd>右鍵</kbd> 瞄準鏡</span><span><kbd>滾輪</kbd> 倍率</span><span><kbd>R</kbd> 換彈</span><span><kbd>1–5</kbd> 彈種</span><span><kbd>Esc</kbd> 暫停</span></div><div class="modal-actions"><button data-action="${mode === "free" ? "free" : "campaign"}">返回</button><button class="primary" data-action="deploy" data-id="${m.id}|${mode}">接受勤務，進入觀測台 ↗</button></div></section></div>`;
+    if (this.mobile) {
+      this.ui.querySelector(".controls")!.innerHTML = `<span><kbd>拖曳</kbd> 瞄準</span><span><kbd>射擊</kbd> 開火</span><span><kbd>瞄準鏡</kbd> 開關</span><span><kbd>倍率 ＋／−</kbd> 縮放</span><span><kbd>換彈</kbd> 裝填</span><span><kbd>彈種按鈕</kbd> 切換</span><span><kbd>回收頭飾</kbd> 自由巡守</span><span><kbd>暫停</kbd> 回報</span>`;
+      const story = this.ui.querySelector(".brief-story")!;
+      story.insertAdjacentHTML("afterend", `<p>本次使用${this.orientation === "portrait" ? "直向" : "橫向"}遊戲，請將手機轉至對應方向。</p>`);
+      if (mode === "free") this.ui.querySelector(".brief")!.innerHTML = this.ui.querySelector(".brief")!.innerHTML.replace("按 E 回收頭飾", "點「回收頭飾」按鈕");
+    }
   }
   async start(m: Mission, mode: "campaign" | "free") {
     if (
@@ -403,6 +463,7 @@ export class App {
         : !freeUnlocked(this.store.value, m.map)
     )
       return;
+    if (this.mobile) await requestOrientation(this.orientation);
     this.session = new Session(
       m,
       mode,
@@ -419,10 +480,15 @@ export class App {
     this.root.classList.add("playing");
     this.root.classList.remove("gallery");
     this.accumulator = 0;
+    this.checkOrientation();
     await this.resume();
   }
   async resume() {
     if (!this.session || this.session.finished) return;
+    if (this.mobile && currentOrientation() !== this.orientation) {
+      this.checkOrientation();
+      return;
+    }
     this.audio.enable();
     const locked = await this.input.lock();
     if (!locked) {
@@ -435,6 +501,8 @@ export class App {
     this.paused = false;
     this.audio.play("deploy");
     this.input.active = true;
+    this.rotationPrompt.hidden = true;
+    this.touchControls.hidden = !this.mobile;
     this.ui.innerHTML = "";
     this.accumulator = 0;
     this.updateHud();
@@ -442,9 +510,11 @@ export class App {
   pause() {
     if (!this.session || this.session.finished) return;
     this.paused = true;
+    this.touchControls.hidden = true;
     this.audio.stop();
     this.input.unlock();
     this.ui.innerHTML = `<div class="modal-backdrop"><section class="modal pause"><div class="eyebrow">OBSERVATION PAUSED</div><h2>暫停勤務</h2><p>時間與現場狀態已暫停。點擊下方按鈕繼續。</p><button class="primary" data-action="resume">繼續勤務 →</button>${this.session.mode === "free" ? `<button data-action="collect" ${this.session.drops.length ? "" : "disabled"}>回收完整頭飾（${this.session.drops.length}）</button>` : ""}<button data-action="leave">${this.session.mode === "free" ? "離開並結算" : "提前回報並結算"}</button><small>滑鼠解鎖、切換分頁或視窗失焦時，遊戲會自動暫停。</small></section></div>`;
+    if (this.mobile) this.ui.querySelector(".pause small")!.textContent = "切換分頁、視窗失焦或手機方向不符時，遊戲會自動暫停。";
   }
   fire() {
     if (!this.session || this.paused) return;
@@ -468,6 +538,8 @@ export class App {
       );
     }
     this.paused = true;
+    this.touchControls.hidden = true;
+    this.rotationPrompt.hidden = true;
     this.input.unlock();
     if (!this.resultSaved) this.resultSaved = this.store.settle(s.result);
     const r = s.result;
@@ -477,6 +549,17 @@ export class App {
   updateHud() {
     const s = this.session;
     if (!s || s.finished) return;
+    if (this.mobile) {
+      this.touchControls.querySelector("[data-touch=scope]")!.setAttribute("aria-pressed", String(this.view.scope));
+      this.touchControls.querySelectorAll<HTMLButtonElement>("[data-touch=ammo]").forEach((b, i) => {
+        b.disabled = !s.availableAmmo.includes(ammoOrder[i]);
+        b.setAttribute("aria-pressed", String(s.ammo === ammoOrder[i]));
+      });
+      this.touchControls.querySelector<HTMLButtonElement>("[data-touch=collect]")!.hidden = s.mode !== "free";
+      this.touchControls.querySelector<HTMLButtonElement>("[data-touch=collect]")!.disabled = !s.drops.length;
+      this.touchControls.querySelector<HTMLButtonElement>("[data-touch=zoom-in]")!.disabled = this.view.zoom === 2;
+      this.touchControls.querySelector<HTMLButtonElement>("[data-touch=zoom-out]")!.disabled = this.view.zoom === 0;
+    }
     const info = this.view.targetInfo(s),
       r = Math.round(info.range),
       time = Math.max(0, s.mission.time_limit_seconds - s.elapsed);

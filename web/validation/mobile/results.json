@@ -1,0 +1,302 @@
+[
+  {
+    "orientation": "portrait",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "layout": {
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "暫停",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "瞄準鏡",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "倍率 ＋",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "普通彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "辣椒彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "咖啡彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "彈珠汽水彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "芽殖彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "換彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "射擊",
+          "visible": true,
+          "reachable": true,
+          "height": 74
+        }
+      ]
+    },
+    "passed": true
+  },
+  {
+    "orientation": "landscape",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "errors": [],
+    "layout": {
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "暫停",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "瞄準鏡",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "倍率 ＋",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "普通彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "辣椒彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "咖啡彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "彈珠汽水彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "芽殖彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "換彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "射擊",
+          "visible": true,
+          "reachable": true,
+          "height": 74
+        }
+      ]
+    },
+    "passed": true
+  },
+  {
+    "orientation": "portrait",
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "errors": [],
+    "layout": {
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "暫停",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "瞄準鏡",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "倍率 ＋",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "普通彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "辣椒彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "咖啡彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "彈珠汽水彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "芽殖彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "換彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "射擊",
+          "visible": true,
+          "reachable": true,
+          "height": 74
+        }
+      ]
+    },
+    "passed": true
+  },
+  {
+    "orientation": "landscape",
+    "viewport": {
+      "width": 667,
+      "height": 375
+    },
+    "errors": [],
+    "layout": {
+      "overflow": false,
+      "buttons": [
+        {
+          "label": "暫停",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "瞄準鏡",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "倍率 ＋",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "普通彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "辣椒彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "咖啡彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "彈珠汽水彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "芽殖彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "換彈",
+          "visible": true,
+          "reachable": true,
+          "height": 44
+        },
+        {
+          "label": "射擊",
+          "visible": true,
+          "reachable": true,
+          "height": 74
+        }
+      ]
+    },
+    "passed": true
+  },
+  {
+    "desktop": true,
+    "passed": true
+  }
+]
