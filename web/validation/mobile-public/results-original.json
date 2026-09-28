@@ -1,6 +1,6 @@
 [
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/?v=auto-3",
+    "url": "https://roywu183.github.io/Yukkuri-Shooting/?v=auto-3",
     "orientation": "portrait",
     "label": "portrait",
     "mobile": true,
@@ -15,7 +15,7 @@
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/?v=auto-3",
+    "url": "https://roywu183.github.io/Yukkuri-Shooting/?v=auto-3",
     "orientation": "landscape",
     "label": "landscape",
     "mobile": true,
@@ -30,7 +30,7 @@
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/?v=auto-3",
+    "url": "https://roywu183.github.io/Yukkuri-Shooting/?v=auto-3",
     "orientation": "portrait",
     "label": "android-portrait",
     "mobile": true,
@@ -45,7 +45,7 @@
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/?v=auto-3",
+    "url": "https://roywu183.github.io/Yukkuri-Shooting/?v=auto-3",
     "orientation": "landscape",
     "label": "android-landscape",
     "mobile": true,
@@ -60,7 +60,7 @@
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/?v=auto-3",
+    "url": "https://roywu183.github.io/Yukkuri-Shooting/?v=auto-3",
     "orientation": "portrait",
     "label": "desktop-agent-touch",
     "mobile": true,
@@ -75,7 +75,7 @@
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/?v=auto-3",
+    "url": "https://roywu183.github.io/Yukkuri-Shooting/?v=auto-3",
     "label": "desktop-agent-no-touch",
     "mobile": false,
     "desktopPointerLock": true,

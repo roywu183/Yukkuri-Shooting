@@ -1,0 +1,10 @@
+{
+  "bundle": "assets/index-CajpfoWf.js",
+  "sha256": "9ee4b66496bdb37016faba047eec76d59bbc5bc1a62c6b78d2f6187762bfadb6",
+  "sites": [
+    "https://roywu183.github.io/Yukkuri-Shooting/",
+    "https://roywu183.github.io/Yukkuri-Shooting-Mobile/"
+  ],
+  "deviceDetection": "auto",
+  "bothMatchLocalBuild": true
+}
