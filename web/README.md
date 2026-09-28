@@ -4,9 +4,9 @@
 
 ## 遊玩
 
-手機支援版獨立發布網址：<https://roywu183.github.io/Yukkuri-Shooting-Mobile/>。部署儲存庫為 `roywu183/Yukkuri-Shooting-Mobile`，其 `main` 僅放置本專案 `codex/mobile-support` 的建置網頁產物與部署設定；原本遊戲的 `main` 與網址維持各自部署。
+遊戲網址：<https://roywu183.github.io/Yukkuri-Shooting/>、<https://roywu183.github.io/Yukkuri-Shooting-Mobile/>。兩個網址發布相同版本，都由瀏覽器自動判斷裝置：手機顯示直向／橫向選擇與觸控操作，電腦使用滑鼠／鍵盤。`Yukkuri-Shooting-Mobile` 儲存庫只放置建置網頁產物與部署設定。
 
-更新手機版時先執行 `npm.cmd run build:mobile`，再於已登入 GitHub 的 PowerShell 執行 `./tools/github-mobile-deploy.ps1 -Mode PublishArtifact`，即可上傳產物並觸發手機版部署。`-Mode Status` 可查詢部署狀態。獨立手機版固定啟用觸控操作與首頁上方的直向／橫向選擇，包含瀏覽器要求桌面網站的情況；一般版仍自動辨識裝置。
+更新時先執行 `npm.cmd run build`；將 `main` 推送至來源儲存庫會觸發第一個網址的部署，再於已登入 GitHub 的 PowerShell 執行 `./tools/github-mobile-deploy.ps1 -Mode PublishArtifact` 更新第二個網址。`-Mode Status` 可查詢第二個網址的部署狀態。`build:mobile` 保留為一般建置的相容別名。
 
 執行 `啟動遊戲.ps1`。腳本會安裝缺少的鎖定套件、在背景啟動本機伺服器並開啟 `http://127.0.0.1:4173/`。可加 `-NoOpen` 只啟動伺服器。
 

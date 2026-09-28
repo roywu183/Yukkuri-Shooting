@@ -1,6 +1,10 @@
-param([ValidateSet('Create', 'PublishArtifact', 'EnablePages', 'Status')][string]$Mode = 'Status')
+param(
+    [ValidateSet('Create', 'PublishArtifact', 'EnablePages', 'Status')][string]$Mode = 'Status',
+    [ValidateSet('Yukkuri-Shooting', 'Yukkuri-Shooting-Mobile')][string]$Repository = 'Yukkuri-Shooting-Mobile'
+)
 $ErrorActionPreference = 'Stop'
-$repositoryName = 'Yukkuri-Shooting-Mobile'
+$repositoryName = $Repository
+if ($repositoryName -eq 'Yukkuri-Shooting' -and $Mode -ne 'Status') { throw '來源儲存庫只能查詢狀態，部署產物僅允許寫入獨立部署儲存庫。' }
 $credentialText = "protocol=https`nhost=github.com`n`n" | git credential fill
 $credential = @{}
 foreach ($line in $credentialText) {
@@ -31,8 +35,8 @@ if ($Mode -eq 'Create') {
     if ($files.Count -ne 4 -or @($files | Where-Object { $_.Extension -notin '.html', '.css', '.js' }).Count) {
         throw '網頁產物清單與預期不符，停止發布。'
     }
-    if ((Get-Content -LiteralPath (Join-Path $distDirectory 'index.html') -Raw) -notmatch 'data-mobile-edition="true"') {
-        throw '請先執行 npm.cmd run build:mobile，避免將一般版發布至手機網址。'
+    if ((Get-Content -LiteralPath (Join-Path $distDirectory 'index.html') -Raw) -notmatch 'data-device-detection="auto"') {
+        throw '請先執行 npm.cmd run build，確保發布支援自動裝置偵測的版本。'
     }
     function Publish-File([string]$Path, [byte[]]$Bytes) {
         $payload = @{ message = "發布手機版：$Path"; content = [Convert]::ToBase64String($Bytes); branch = 'main' }

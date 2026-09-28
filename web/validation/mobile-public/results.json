@@ -1,55 +1,84 @@
 [
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "url": "http://127.0.0.1:4173/",
     "orientation": "portrait",
     "label": "portrait",
+    "mobile": true,
+    "languages": [
+      "zh-Hant",
+      "zh-Hans",
+      "ja"
+    ],
     "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "url": "http://127.0.0.1:4173/",
     "orientation": "landscape",
     "label": "landscape",
+    "mobile": true,
+    "languages": [
+      "zh-Hant",
+      "zh-Hans",
+      "ja"
+    ],
     "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "url": "http://127.0.0.1:4173/",
     "orientation": "portrait",
     "label": "android-portrait",
+    "mobile": true,
+    "languages": [
+      "zh-Hant",
+      "zh-Hans",
+      "ja"
+    ],
     "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "url": "http://127.0.0.1:4173/",
     "orientation": "landscape",
     "label": "android-landscape",
+    "mobile": true,
+    "languages": [
+      "zh-Hant",
+      "zh-Hans",
+      "ja"
+    ],
     "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
+    "url": "http://127.0.0.1:4173/",
     "orientation": "portrait",
     "label": "desktop-agent-touch",
+    "mobile": true,
+    "languages": [
+      "zh-Hant",
+      "zh-Hans",
+      "ja"
+    ],
     "choiceInFirstScreen": true,
     "status": 200,
     "errors": [],
     "passed": true
   },
   {
-    "url": "https://roywu183.github.io/Yukkuri-Shooting-Mobile/",
-    "orientation": "portrait",
+    "url": "http://127.0.0.1:4173/",
     "label": "desktop-agent-no-touch",
-    "choiceInFirstScreen": true,
-    "status": 200,
+    "mobile": false,
+    "desktopPointerLock": true,
     "errors": [],
     "passed": true
   }
